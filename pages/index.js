@@ -1,12 +1,11 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import styles from '../styles/app.module.scss';
-
+import HomePage from '@template/HomePage'
 
 export default function Home() {
   return (
     <>
-      |
+      <HomePage />
     </>
   );
 }

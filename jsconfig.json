@@ -1,5 +1,15 @@
 {
   "compilerOptions": {
-    "baseUrl": "."
-  }
+    "baseUrl": "app",
+    "paths": {
+      "@element/*": ["components/elements/*"],
+      "@layout/*": ["components/layouts/*"],
+      "@module/*": ["components/modules/*"],
+      "@template/*": ["components/templates/*"],
+      "@util/*": ["utils/*"],
+      "@api/*": ["api/*"],
+      "@redux/*": ["redux/*"],
+    },
+  },
+ 
 }
