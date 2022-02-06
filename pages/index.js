@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import HomePage from '@template/HomePage'
+import HomePage from '@template/HomePage';
 
-export default function Home() {
+function Home() {
   return (
     <>
       <HomePage />
@@ -10,3 +10,4 @@ export default function Home() {
   );
 }
 
+export default Home;

@@ -11,6 +11,7 @@
     "@paypal/react-paypal-js": "^7.6.0",
     "@react-three/drei": "^8.8.1",
     "@react-three/fiber": "^7.0.26",
+    "@redux-devtools/extension": "^3.2.1",
     "babel-plugin-glsl": "^1.0.0",
     "bcryptjs": "^2.4.3",
     "chart.js": "^3.7.0",
