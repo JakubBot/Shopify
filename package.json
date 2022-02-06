@@ -1,0 +1,43 @@
+{
+  "name": "s",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@paypal/react-paypal-js": "^7.6.0",
+    "@react-three/drei": "^8.8.1",
+    "@react-three/fiber": "^7.0.26",
+    "babel-plugin-glsl": "^1.0.0",
+    "bcryptjs": "^2.4.3",
+    "chart.js": "^3.7.0",
+    "circletype": "^2.3.0",
+    "framer-motion": "^6.2.4",
+    "glsl-noise": "^0.0.0",
+    "glslify": "^7.1.1",
+    "gsap": "^3.9.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.0",
+    "next": "12.0.3",
+    "next-connect": "^0.11.1",
+    "next-redux-wrapper": "^7.0.5",
+    "react": "17.0.2",
+    "react-chartjs-2": "^4.0.1",
+    "react-dom": "17.0.2",
+    "react-hook-form": "^7.26.0",
+    "react-icons": "^4.3.1",
+    "react-redux": "^7.2.6",
+    "react-step-progress-bar": "^1.0.3",
+    "redux": "^4.1.2",
+    "redux-persist": "^6.0.0",
+    "sass": "^1.49.7",
+    "three": "^0.137.5"
+  },
+  "devDependencies": {
+    "eslint": "7.32.0",
+    "eslint-config-next": "12.0.3"
+  }
+}
