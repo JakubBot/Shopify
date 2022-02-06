@@ -1,7 +1,8 @@
-// import '../styles/globals.css'
 import wrapper from 'redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { useStore } from 'react-redux';
+
+import 'styles/base/_base.scss';
 
 function MyApp({ Component, pageProps }) {
   const store = useStore((state) => state);

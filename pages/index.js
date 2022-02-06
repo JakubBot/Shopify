@@ -1,11 +1,12 @@
-import Head from 'next/head';
-import Image from 'next/image';
 import HomePage from '@template/HomePage';
+import BasicLayout from '@layout/BasicLayout';
 
 function Home() {
   return (
     <>
-      <HomePage />
+      <BasicLayout description="">
+        <HomePage />
+      </BasicLayout>
     </>
   );
 }
