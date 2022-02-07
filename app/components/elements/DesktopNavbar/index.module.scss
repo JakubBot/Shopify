@@ -40,7 +40,7 @@
   right: -550px;
 
   @include rwd(800) {
-    bottom: -150px;
+    bottom: -130px;
     right: -450px;
   }
   @include rwd(1000) {
@@ -50,7 +50,7 @@
   @include rwd(1350) {
     width: 1500px;
     height: 1500px;
-    bottom: -150px;
-    right: -580px;
+    bottom: -170px;
+    right: -560px;
   }
 }
