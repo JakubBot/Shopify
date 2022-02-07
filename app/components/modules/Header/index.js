@@ -8,7 +8,7 @@ let timeline;
 
 const Header = () => {
   const [isActive, setIsActive] = useState(false);
-  const [shouldAnimateNavbar, setShouldAnimateNavbar] = useState(
+  const [isMobile, setIsMobile] = useState(
     window.innerWidth > 550 ? false : true
   );
 
@@ -17,7 +17,6 @@ const Header = () => {
   const listRef = useRef();
 
   const changeBurger = () => {
-    // if (!shouldAnimateNavbar) return;
     if (!isActive) {
       timeline.play();
     } else {
@@ -29,24 +28,24 @@ const Header = () => {
 
   useEffect(() => {
     function handleResize() {
-      setShouldAnimateNavbar(window.innerWidth > 550 ? false : true);
+      setIsMobile(window.innerWidth > 550 ? false : true);
     }
     window.addEventListener('resize', handleResize);
 
     return () => window.removeEventListener('resize', handleResize);
   }, []);
   useEffect(() => {
-    if (!shouldAnimateNavbar) return;
+    if (!isMobile) return;
 
     timeline = getTimeLine({ navbarRef, listRef });
-  }, [shouldAnimateNavbar]);
+  }, [isMobile]);
   return (
     <header className={styles.header}>
       <h2 className={styles.title}>
         Shop<span className={styles.emptySpan}>ify</span>
       </h2>
 
-      {shouldAnimateNavbar ? (
+      {isMobile ? (
         <>
           <div
             ref={burgerRef}

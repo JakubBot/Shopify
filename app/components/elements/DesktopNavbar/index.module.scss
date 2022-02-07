@@ -1,9 +1,56 @@
 @import 'styles/app.scss';
 
 .nav {
-  // display: none;
+  display: grid;
+  position: relative;
+}
 
-  // @include rwd(550) {
-  //   display: block;
-  // }
+.list {
+  @extend %list;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.listItem {
+  margin: 0 10px;
+  font-size: clamp(15px,1.5vw,25px);
+  font-weight: 600;
+  color: #d6d6d6;
+  cursor: pointer;
+  z-index: 1;
+
+  &:hover {
+    color: #efefef;
+
+  }
+}
+
+.listItem:last-of-type {
+  border-right: unset;
+}
+.circle {
+  width: 1000px;
+  height: 600px;
+  border-radius: 50%;
+  position: absolute;
+  background-color: rgb(19, 19, 24);
+  bottom: -150px;
+  right: -550px;
+
+  @include rwd(800) {
+    bottom: -150px;
+    right: -450px;
+  }
+  @include rwd(1000) {
+    bottom: -150px;
+    right: -400px;
+  }
+  @include rwd(1350) {
+    width: 1500px;
+    height: 1500px;
+    bottom: -150px;
+    right: -580px;
+  }
 }
