@@ -17,7 +17,7 @@
 .title {
   font-weight: bold;
   font-size: clamp(40px, 5vw, 55px);
-  z-index: 5;
+  z-index: 100;
 }
 
 .emptySpan {
@@ -30,7 +30,7 @@
   width: 45px;
   cursor: pointer;
   margin: 10px;
-  z-index: 2;
+  z-index: 100;
 }
 .burgerLine {
   height: 4px;

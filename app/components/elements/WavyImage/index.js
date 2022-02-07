@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { Canvas, useFrame, extend, useLoader } from '@react-three/fiber';
-import { shaderMaterial, useTexture } from '@react-three/drei';
+import { shaderMaterial } from '@react-three/drei';
 import glsl from 'glslify';
 import { Suspense, useEffect, useRef } from 'react';
 import CanMaterial from './canSmall.jpg';
@@ -55,10 +55,6 @@ const Wave = () => {
 };
 
 const WavyImage = () => {
-  useEffect(() => {
-    return () => window.location.reload();
-  }, []);
-
   return (
     <>
       <Canvas camera={{ position: [0, 0, 5], fov: 15 }}>

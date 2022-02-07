@@ -2,7 +2,7 @@ import { gsap } from 'gsap';
 function getTimeLine({ navbarRef, listRef }) {
   return gsap
     .timeline({ paused: true })
-    .set(navbarRef.current, { xPercent: -100 })
+    .set(navbarRef.current, { xPercent: -100,autoAlpha: 1 })
     .fromTo(
       navbarRef.current,
       {
