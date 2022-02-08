@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { Canvas, useFrame, extend, useLoader } from '@react-three/fiber';
 import { shaderMaterial } from '@react-three/drei';
 import glsl from 'glslify';
-import { Suspense, useEffect, useRef } from 'react';
+import { Suspense, useRef } from 'react';
 import CanMaterial from './canSmall.jpg';
 
 const WavyShaderMaterial = shaderMaterial(

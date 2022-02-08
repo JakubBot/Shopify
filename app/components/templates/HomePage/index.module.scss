@@ -7,7 +7,7 @@
   height: 600px;
   position: relative;
   // background-color: #fefefe;
-
+  // height: clamp(600px,75%,900px);
   @include rwd(550) {
     margin-top: 0px;
     height: 600px;
@@ -15,11 +15,13 @@
 
   @include tablet {
     margin-top: -20px;
+    height: 750px;
+
   }
   @include desktop {
     margin-top: -80px;
 
-    height: 700px;
+    height: 750px;
   }
   @include lDesktop {
     height: 800px;
@@ -56,12 +58,28 @@
   }
 }
 .goProducts {
-  margin-top: -20px;
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  position: absolute;
+  bottom: 18px;
+  right: 5px;
 
+
+
+  @include tablet {
+    bottom: 25px;
+    right: 5px;
+  }
+  @include sDesktop {
+    bottom: 25px;
+    right: 5px;
+  }
+  @include desktop {
+    bottom: 35px;
+    right: 10px;
+  }
+  @include lDesktop {
+    bottom: 55px;
+    right: 25px;
+  }
 }
 .goProductsLink {
   border-bottom: 1px solid #3f3f3f;
@@ -73,4 +91,5 @@
 
 .section {
   height: 100vh;
+  position: relative;
 }

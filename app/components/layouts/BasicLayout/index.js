@@ -1,6 +1,5 @@
 import Head from 'next/head';
-import Header from 'components/modules/Header'
-
+import FloatedCartIcon from '@element/FloatedCartIcon'
 const BasicLayout = ({ children, title, description }) => {
   return (
     <>
@@ -8,7 +7,7 @@ const BasicLayout = ({ children, title, description }) => {
         <title> {title ?? 'Shopify'}</title>
         <meta name="description" content={description ?? 'Shopify brings you the best food made of magnificient products'}></meta>
       </Head>
-      <Header />
+      <FloatedCartIcon />
       {children}
     </>
   );
