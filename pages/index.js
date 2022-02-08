@@ -21,7 +21,7 @@ export async function getServerSideProps() {
   await db.disconnect()
   return {
     props: {
-      newProducts: newProducts.map(db.convertToJs)
+      newProducts: newProducts.map(db.convertToObj)
     }
   }
 }

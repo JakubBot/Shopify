@@ -27,7 +27,7 @@ async function disconnect() {
   }
 }
 
-function convertToJs(doc) {
+function convertToObj(doc) {
   doc._id = doc._id.toString();
   doc.createdAt = doc.createdAt.toString();
   doc.updatedAt = doc.updatedAt.toString();
@@ -35,5 +35,5 @@ function convertToJs(doc) {
   return doc;
 }
 
-const db = { connect, disconnect, convertToJs };
+const db = { connect, disconnect, convertToObj };
 export default db;
