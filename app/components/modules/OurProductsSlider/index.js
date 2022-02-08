@@ -12,6 +12,7 @@ const images = [
 ];
 
 const OurProductsSlider = ({newProducts}) => {
+  console.log(newProducts);
   const [width, setWidth] = useState(0);
   const carusel = useRef();
   useEffect(() => {

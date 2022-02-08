@@ -17,7 +17,7 @@ function Home({newProducts}) {
 export async function getServerSideProps() {
 
   await db.connect()
-  let newProducts = await Product.find({}).lean()
+  let newProducts = await Product.find({isFeatured: true}).lean()
   await db.disconnect()
   return {
     props: {
