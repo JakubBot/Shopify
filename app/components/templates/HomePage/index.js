@@ -2,7 +2,8 @@ import HomeWelcome from '@module/HomeWelcome';
 import OurProductsSlider from '@module/OurProductsSlider';
 import styles from './index.module.scss';
 
-const HomePage = () => {
+const HomePage = (props) => {
+  console.log(props);
   return (
     <>
       <section className={styles.section}>

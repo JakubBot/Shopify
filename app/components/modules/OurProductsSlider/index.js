@@ -8,10 +8,7 @@ const images = [
   { src: 'chicken', id: 1 },
   { src: 'cola', id: 2 },
   { src: 'cola', id: 3 },
-  { src: 'cola', id: 3 },
-  { src: 'cola', id: 3 },
-  { src: 'cola', id: 3 },
-  { src: 'cola', id: 3 },
+  { src: 'cola', id: 4 },
 ];
 
 const OurProductsSlider = () => {
