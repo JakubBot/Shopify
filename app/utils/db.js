@@ -3,11 +3,10 @@ import mongoose from 'mongoose';
 let connection = {};
 
 async function connect() {
-  console.log(mongoose.connection.length);
   if (connection.isConnected) {
     return;
   }
-  
+
   if (mongoose.connections.length > 0) {
     connection.isConnected = mongoose.connections[0].readyState;
     if (connection.isConnected === 1) {
@@ -28,5 +27,13 @@ async function disconnect() {
   }
 }
 
-const db = { connect, disconnect };
+function convertToJs(doc) {
+  doc._id = doc._id.toString();
+  doc.createdAt = doc.createdAt.toString();
+  doc.updatedAt = doc.updatedAt.toString();
+
+  return doc;
+}
+
+const db = { connect, disconnect, convertToJs };
 export default db;

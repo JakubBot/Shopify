@@ -11,7 +11,7 @@ const images = [
   { src: 'cola', id: 4 },
 ];
 
-const OurProductsSlider = () => {
+const OurProductsSlider = ({newProducts}) => {
   const [width, setWidth] = useState(0);
   const carusel = useRef();
   useEffect(() => {
@@ -30,11 +30,11 @@ const OurProductsSlider = () => {
             drag="x"
             className={styles.productSliderinner}
           >
-            {images.map((image) => {
+            {newProducts.map((image) => {
               return (
-                <div key={image.id} className={styles.productContainer}>
+                <div key={image._id} className={styles.productContainer}>
                   <Image
-                    src={`/${image.src}.webp`}
+                    src={image.image}
                     alt=""
                     className={styles.productImage}
                     layout="responsive"

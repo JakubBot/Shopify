@@ -1,27 +1,27 @@
 import HomePage from '@template/HomePage';
 import BasicLayout from '@layout/BasicLayout';
+import Product from 'models/Product'
 import db from 'utils/db'
 
-function Home(props) {
-  // console.log(props);
+function Home({newProducts}) {
   return (
     <>
       <BasicLayout description="">
-        <HomePage />
+        <HomePage newProducts={newProducts} />
       </BasicLayout>
     </>
   );
 }
 
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
 
   await db.connect()
+  let newProducts = await Product.find({}).lean()
   await db.disconnect()
-
   return {
     props: {
-      name: 'jakub'
+      newProducts: newProducts.map(db.convertToJs)
     }
   }
 }
