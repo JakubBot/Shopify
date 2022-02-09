@@ -1,4 +1,9 @@
 @import 'styles/app.scss';
+
+.homeContainer {
+  background-color: #f0f0f0;
+}
+
 .wavyImageContainter {
   padding: 0px 35px;
   margin-top: -50px;
@@ -6,8 +11,6 @@
   width: 100%;
   height: 600px;
   position: relative;
-  // background-color: #fefefe;
-  // height: clamp(600px,75%,900px);
   @include rwd(550) {
     margin-top: 0px;
     height: 600px;

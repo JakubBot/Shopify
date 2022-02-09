@@ -1,19 +1,11 @@
 const data = {
   products: [
     {
-      name: 'Chicken',
-      slug: 'chicken',
-      image: '/products/chicken.webp',
-      price: 9.99,
-      isFeatured: true,
-    },
-    {
       name: 'Cola',
       slug: 'cola',
       image: '/products/cola.webp',
       price: 3.99,
       isFeatured: true,
-
     },
     {
       name: 'Hamburger',
@@ -21,7 +13,6 @@ const data = {
       image: '/products/hamburger.webp',
       price: 7.99,
       isFeatured: true,
-
     },
     {
       name: 'Pizza',
@@ -29,7 +20,13 @@ const data = {
       image: '/products/pizza.webp',
       price: 19.99,
       isFeatured: true,
-
+    },
+    {
+      name: 'Chicken',
+      slug: 'chicken',
+      image: '/products/chicken.webp',
+      price: 9.99,
+      isFeatured: true,
     },
     {
       name: 'Spaghetti',
@@ -37,7 +34,6 @@ const data = {
       image: '/products/spaghetti.webp',
       price: 14.99,
       isFeatured: true,
-
     },
     {
       name: 'Cheese Cake',
@@ -45,7 +41,6 @@ const data = {
       image: '/products/cheeseCake.webp',
       price: 8.99,
       isFeatured: true,
-
     },
     {
       name: 'Coconut Water',
@@ -53,7 +48,6 @@ const data = {
       image: '/products/coconutWater.webp',
       price: 8.99,
       isFeatured: false,
-
     },
     {
       name: 'Wings',
@@ -61,7 +55,6 @@ const data = {
       image: '/products/wings.webp',
       price: 8.99,
       isFeatured: false,
-      
     },
     {
       name: 'Chips',
@@ -69,7 +62,6 @@ const data = {
       image: '/products/chips.webp',
       price: 8.99,
       isFeatured: false,
-
     },
     {
       name: 'Meatballs',
@@ -77,7 +69,6 @@ const data = {
       image: '/products/meatballs.webp',
       price: 8.99,
       isFeatured: false,
-
     },
     {
       name: 'Buckle Bunny',
@@ -85,7 +76,6 @@ const data = {
       image: '/products/buckleBunny.webp',
       price: 8.99,
       isFeatured: false,
-
     },
     {
       name: 'Pizza',
@@ -93,10 +83,8 @@ const data = {
       image: '/products/pizza.webp',
       price: 8.99,
       isFeatured: false,
-
     },
   ],
-  
 };
 
 export default data;

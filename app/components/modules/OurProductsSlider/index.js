@@ -4,15 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './index.module.scss';
 
-const images = [
-  { src: 'chicken', id: 1 },
-  { src: 'cola', id: 2 },
-  { src: 'cola', id: 3 },
-  { src: 'cola', id: 4 },
-];
-
-const OurProductsSlider = ({newProducts}) => {
-  console.log(newProducts);
+const OurProductsSlider = ({ newProducts }) => {
   const [width, setWidth] = useState(0);
   const carusel = useRef();
   useEffect(() => {
@@ -31,9 +23,17 @@ const OurProductsSlider = ({newProducts}) => {
             drag="x"
             className={styles.productSliderinner}
           >
-            {newProducts.map((image) => {
+            {newProducts.map((image, index) => {
               return (
                 <div key={image._id} className={styles.productContainer}>
+                  <button
+                    type="button"
+                    className={styles.productContainerButton}
+                  >
+                    <Link href={image.slug}>
+                      <a>Read more</a>
+                    </Link>
+                  </button>
                   <Image
                     src={image.image}
                     alt=""
@@ -41,6 +41,7 @@ const OurProductsSlider = ({newProducts}) => {
                     layout="responsive"
                     width={'100%'}
                     height={'100%'}
+                    priority={index === 0 || index === 1 ? true : false}
                   />
                 </div>
               );
