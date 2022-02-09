@@ -5,7 +5,7 @@ import { gsap } from 'gsap';
 import Link from 'next/link';
 import styles from './index.module.scss';
 import Header from '@element/Header';
-import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
+import SocialIcons from '@element/SocialIcons';
 const HomeWelcome = () => {
   useEffect(() => {
     const circleText = document.getElementById('circleText');
@@ -19,42 +19,26 @@ const HomeWelcome = () => {
       ease: 'none',
     });
   }, []);
-return (
-<>
-<Header />
-        <div className={styles.wavyImageContainter}>
-          <WavyImage />
-          <h3 className={styles.wavyImageTitle}>Welcome in SHOPIFY</h3>
-          <h4 className={styles.circleText} id="circleText">
-            Discounts Discounts{' '}
-          </h4>
-        </div>
-        <div className={styles.goProducts}>
-          <Link href="/products">
-            <a>
-              <h3 className={styles.goProductsLink}>Go to products</h3>
-            </a>
-          </Link>
-        </div>
-        <div className={styles.socialIcons}>
-          <Link href="/cos">
-            <a>
-              <FaFacebook />
-            </a>
-          </Link>
-          <Link href="">
-            <a>
-              <FaTwitter />
-            </a>
-          </Link>
-          <Link href="">
-            <a>
-              <FaInstagram />
-            </a>
-          </Link>
-        </div>
-</>
-)
-}
+  return (
+    <>
+      <Header />
+      <div className={styles.wavyImageContainter}>
+        <WavyImage />
+        <h3 className={styles.wavyImageTitle}>Welcome in SHOPIFY</h3>
+        <h4 className={styles.circleText} id="circleText">
+          Discounts Discounts{' '}
+        </h4>
+      </div>
+      <div className={styles.goProducts}>
+        <Link href="/products">
+          <a>
+            <h3 className={styles.goProductsLink}>Go to products</h3>
+          </a>
+        </Link>
+      </div>
+      <SocialIcons />
+    </>
+  );
+};
 
 export default HomeWelcome;

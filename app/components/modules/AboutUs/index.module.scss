@@ -1,0 +1,100 @@
+@import 'styles/app.scss';
+
+.aboutUsContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  @include desktop {
+    padding: 30px 60px;
+  }
+}
+.aboutUsTitle {
+  font-size: clamp(32px, 4vw, 50px);
+  margin: 20px 0 0px;
+  color: rgb(19, 19, 24);
+  letter-spacing: 1px;
+}
+.dataContainer {
+  margin-top: 15px;
+}
+
+.chartJs {
+  width: 100%;
+  max-width: 550px;
+  margin: 60px 0 40px;
+
+  @include lDesktop {
+    width: 650px;
+    max-width: unset;
+  }
+}
+.chartJsTitle {
+  font-size: clamp(24px, 2.8vw, 30px);
+  color: rgb(17, 17, 24);
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+.data {
+  margin: 20px 0;
+}
+.dataTitle {
+  font-size: clamp(24px, 3vw, 30px);
+
+  color: rgb(21, 21, 30);
+  font-weight: 600;
+}
+
+// .dataContainerItem {
+//   display: flex;
+//   justify-content: space-between;
+//   padding: 10px 40px;
+//   font-size: 18px;
+//   h5 {
+//     display: inline-block;
+//   }
+// }
+
+.companyHistory {
+  width: 100%;
+  max-width: 500px;
+  font-size: clamp(13px, 2.1vw, 20px);
+  margin: 30px 0;
+  color: #414144e0;
+}
+
+.imgContainer {
+  display: none;
+
+  
+  @include sDesktop {
+    display: initial;
+    width: 350px;
+    height: 650px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  @include lDesktop {
+    width: 400px;
+    height: 700px;
+
+  }
+
+  canvas {
+    // width: inherit !important;
+    // height: inherit !important;
+  }
+}
+
+// .img {
+//   width: 75%;
+
+//   @include lDesktop {
+//     width: 85%;
+//   }
+// }

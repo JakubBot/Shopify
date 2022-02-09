@@ -1,0 +1,24 @@
+@import 'styles/app.scss';
+
+.socialIcons {
+  position: absolute;
+  left: 0;
+  top: 55%;
+  flex-direction: column;
+  gap: 24px;
+  font-size: clamp(32px,3vw,36px);
+  color: rgb(19,19,24);
+  display: none;
+  margin: 0 20px;
+  cursor: pointer;
+  @include sDesktop {
+    display: flex;
+  }
+}
+
+.lDesktop {
+  display: none;
+  @include lDesktop {
+    display:  flex;
+  }
+}
