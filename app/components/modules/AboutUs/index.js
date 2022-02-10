@@ -1,4 +1,3 @@
-import { Chart } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
   LineController,
@@ -10,6 +9,13 @@ import {
   BarController,
   BarElement,
 } from 'chart.js';
+import Image from 'next/image';
+
+import SocialIcons from '@element/SocialIcons';
+import { useState, useEffect } from 'react';
+import { Line } from 'react-chartjs-2';
+
+import styles from './index.module.scss';
 
 ChartJS.register(
   LineController,
@@ -21,12 +27,6 @@ ChartJS.register(
   BarController,
   BarElement
 );
-import SocialIcons from '@element/SocialIcons';
-import hoverEffect from 'hover-effect'
-import { useState, useEffect } from 'react';
-import { Line } from 'react-chartjs-2';
-
-import styles from './index.module.scss';
 
 const labels = [
   '2014',
@@ -63,15 +63,6 @@ const AboutUs = () => {
         },
       ],
     });
-
-
-     new hoverEffect({
-      parent: document.querySelector('#displacementImage'),
-      intensity: 0.3,
-      image1: '/kayaks/kayaks1.webp',
-      image2: '/kayaks/kayaks2.webp',
-      displacementImage: '/kayaks/displacementMap.jpg'
-  });
   }, []);
 
   return (
@@ -93,20 +84,6 @@ const AboutUs = () => {
         </div>
         <div className={styles.data}>
           <h3 className={styles.dataTitle}>History</h3>
-          {/* <div className={styles.dataContainer}>
-            <div className={styles.dataContainerItem}>
-              <h5>Restaurants</h5>
-              <h5>1200</h5>
-            </div>
-            <div className={styles.dataContainerItem}>
-              <h5>Clients</h5>
-              <h5>200 000</h5>
-            </div>
-            <div className={styles.dataContainerItem}>
-              <h5>Rating</h5>
-              <h5>9/10</h5>
-            </div>
-          </div> */}
           <div className={styles.companyHistory}>
             {`  Brothers Maurice and Richard founded Shopify's first restaurant, Get
             Shopify's Corporation in 2010, transforming their restaurant into
@@ -117,10 +94,18 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
-      <div className={styles.imgContainer} id="displacementImage">
-        {/* <img src="/kayaks/kayaks1.webp" className={styles.img} /> */}
+      <div className={styles.imgContainer}>
+        <Image
+          src="/kayaks/kayaks1.webp"
+          alt="kayaks"
+          className={styles.img}
+          layout="responsive"
+          width={500}
+          height={500}
+        />
+      
       </div>
-      <SocialIcons display={'lDesktop'} />
+      <SocialIcons lDesktop />
     </div>
   );
 };

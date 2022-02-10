@@ -1,6 +1,7 @@
 import HomePage from '@template/HomePage';
 import BasicLayout from '@layout/BasicLayout';
 import Product from 'models/Product'
+
 import db from 'utils/db'
 
 function Home({newProducts}) {
@@ -14,7 +15,7 @@ function Home({newProducts}) {
 }
 
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
 
   await db.connect()
   let newProducts = await Product.find({isFeatured: true}).lean()
@@ -22,7 +23,8 @@ export async function getServerSideProps() {
   return {
     props: {
       newProducts: newProducts.map(db.convertToObj)
-    }
+    },
+    revalidate: 60
   }
 }
 

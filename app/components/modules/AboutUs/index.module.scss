@@ -9,7 +9,7 @@
   justify-content: space-around;
   align-items: center;
   @include desktop {
-    padding: 30px 60px;
+    padding: 30px 100px;
   }
 }
 .aboutUsTitle {
@@ -68,33 +68,19 @@
 
 .imgContainer {
   display: none;
+  width: 100%;
 
-  
-  @include sDesktop {
-    display: initial;
-    width: 350px;
-    height: 650px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  @include desktop {
+    display: block;
+    max-width: 550px;
   }
+
   @include lDesktop {
-    width: 400px;
-    height: 700px;
-
-  }
-
-  canvas {
-    // width: inherit !important;
-    // height: inherit !important;
+    max-width: 650px;
   }
 }
 
-// .img {
-//   width: 75%;
+.img {
+  object-fit: contain;
+}
 
-//   @include lDesktop {
-//     width: 85%;
-//   }
-// }
