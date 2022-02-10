@@ -1,6 +1,7 @@
 import HomeWelcome from '@module/HomeWelcome';
 import OurProductsSlider from '@module/OurProductsSlider';
 import AboutUs from '@module/AboutUs';
+import Contact from '@module/Contact'
 import styles from './index.module.scss';
 import { useEffect, useRef } from 'react';
 import SnapScrollingGsap from './SnapScrollingGsap';
@@ -23,7 +24,7 @@ const HomePage = ({ newProducts }) => {
         <AboutUs />
       </section>
       <section className={styles.section}>
-        <h1>s</h1>
+        <Contact />
       </section>
     </div>
   );

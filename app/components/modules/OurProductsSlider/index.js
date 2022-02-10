@@ -24,7 +24,6 @@ const OurProductsSlider = ({ newProducts }) => {
             className={styles.productSliderinner}
           >
             {newProducts.map((image, index) => {
-              console.log(image.image);
               return (
                 <div key={image._id} className={styles.productContainer}>
                   <button
