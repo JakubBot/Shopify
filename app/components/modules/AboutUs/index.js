@@ -103,9 +103,7 @@ const AboutUs = () => {
           width={500}
           height={500}
         />
-      
       </div>
-      <SocialIcons lDesktop />
     </div>
   );
 };

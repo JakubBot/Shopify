@@ -20,6 +20,7 @@
 .error {
   color: #bf1650;
   font-size: clamp(13px,2vw,16px);
+  margin: 5px 0;
   &::before {
     display: inline;
     content: "⚠ ";

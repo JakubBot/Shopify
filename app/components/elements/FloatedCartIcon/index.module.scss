@@ -1,11 +1,11 @@
 @import 'styles/app.scss';
 
 .cartContainer {
-  width: clamp(45px,6vw,65px);
-  height: clamp(45px,6vw,65px);
+  width: clamp(55px, 5vw, 60px);
+  height: clamp(55px, 5vw, 60px);
   position: fixed;
-  bottom: 20px;
-  left: 20px;
+  bottom: 50px;
+  left: 30px;
   z-index: 10;
   border: 1px solid #3f3f3f;
   border-radius: 50%;
@@ -15,15 +15,17 @@
   cursor: pointer;
 
   @include sDesktop {
-    bottom: 45px;
-    left: 45px;
+    bottom: 65px;
+    left: 65px;
+    bottom: 40px;
+    left: 40px;
   }
   @include lDesktop {
-    bottom: 55px;
-    left: 55px;
+    bottom: 85px;
+    left: 85px;
   }
 }
 .cartIcon {
-  font-size: clamp(25px,3vw,36px);
-  color: rgba(19,19,23);
+  font-size: clamp(25px, 2.6vw, 30px);
+  color: rgba(19, 19, 23);
 }

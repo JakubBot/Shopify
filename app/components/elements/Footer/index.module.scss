@@ -1,0 +1,46 @@
+@import 'styles/app.scss';
+
+.footer {
+  width: 100%;
+  background-color: #111821;
+  // height: 50px;
+  padding: 20px 0;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #c0c0c0;
+
+  @include tablet {
+    justify-content: flex-start;
+  }
+  @include sDesktop {
+    justify-content: space-around;
+  }
+}
+
+.footerLinks {
+  max-width: 400px;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  font-size: clamp(11px, 0.8vw, 14px);
+}
+.footerLink {
+  margin: 4px 10px;
+}
+.footerPhone {
+  display: none;
+  font-size: clamp(11px, 0.8vw, 14px);
+
+  @include sDesktop {
+    display: grid;
+    place-items: center;
+    grid-template-columns: auto 1fr;
+    gap: 8px;
+  }
+}
