@@ -17,6 +17,7 @@
     "@react-three/drei": "^8.8.1",
     "@react-three/fiber": "^7.0.26",
     "@redux-devtools/extension": "^3.2.1",
+    "axios": "^0.25.0",
     "babel-plugin-glsl": "^1.0.0",
     "bcryptjs": "^2.4.3",
     "chart.js": "^3.7.0",

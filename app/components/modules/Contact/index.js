@@ -4,8 +4,11 @@ import Icosahedron from '@element/Icosahedron';
 import SocialIcons from '@element/SocialIcons';
 import Footer from '@element/Footer';
 import styles from './index.module.scss';
+import axios from 'axios';
+import { useState } from 'react';
 
 const Contact = () => {
+  const [activeButton, setActiveButton] = useState(true);
   const {
     register,
     handleSubmit,
@@ -14,19 +17,22 @@ const Contact = () => {
   } = useForm({
     criteriaMode: 'all',
     defaultValues: {
-      name: '',
+      userName: '',
       email: '',
       message: '',
     },
   });
-  const getState = (state) => {
-    reset({
-      name: '',
-      email: '',
-      message: '',
+  const onSubmit = async (state) => {
+    await axios.post('/api/ideas', state).then(() => {
+      setActiveButton(false);
+      reset({
+        userName: '',
+        email: '',
+        message: '',
+      });
     });
   };
-
+  
   return (
     <>
       <div className={styles.contactContainer}>
@@ -34,10 +40,10 @@ const Contact = () => {
           <h2 className={styles.title}>New ideas?</h2>
 
           <h4 className={styles.subTitle}>Write to us!</h4>
-          <form className={styles.form} onSubmit={handleSubmit(getState)}>
+          <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
             <InputComponent
               labelName="Name"
-              label="name"
+              label="userName"
               errors={errors}
               register={register}
               type="text"
@@ -57,8 +63,14 @@ const Contact = () => {
               type="message"
             />
 
-            <button type="submit" className={styles.contactButton}>
-              Submit
+            <button
+              type={activeButton ? 'submit' : 'button'}
+              className={`${styles.contactButton} ${
+                !activeButton ? styles.activeButton : ''
+              }`}
+            >
+              {activeButton ? 'Submit' : 'Thanks'}
+              
             </button>
           </form>
         </div>
