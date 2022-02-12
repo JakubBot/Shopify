@@ -5,7 +5,12 @@ import { useEffect, useRef } from 'react';
 
 import SnapScrollingGsap from './SnapScrollingGsap';
 
-const SnapScrollingLayout = ({ title, description, components }) => {
+const SnapScrollingLayout = ({
+  title,
+  description,
+  components,
+  positionCartIcon,
+}) => {
   const containerRef = useRef();
   useEffect(() => {
     SnapScrollingGsap(containerRef);
@@ -22,16 +27,18 @@ const SnapScrollingLayout = ({ title, description, components }) => {
           }
         ></meta>
       </Head>
-      <FloatedCartIcon />
+      <div>
+        <FloatedCartIcon position={positionCartIcon} />
 
-      <div ref={containerRef} className={styles.homeContainer}>
-        {components.map((component) => {
-          return (
-            <section className={styles.section} key={component.key}>
-              {component}
-            </section>
-          );
-        })}
+        <div ref={containerRef} className={styles.homeContainer}>
+          {components.map((component) => {
+            return (
+              <section className={styles.section} key={component.key}>
+                {component}
+              </section>
+            );
+          })}
+        </div>
       </div>
     </>
   );
