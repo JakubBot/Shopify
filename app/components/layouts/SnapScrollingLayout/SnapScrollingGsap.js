@@ -1,6 +1,9 @@
-import { gsap } from 'gsap';
+// import { gsap } from 'gsap';
 
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+// import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+
 gsap.registerPlugin(ScrollTrigger);
 
 let scrollDirection = 1;

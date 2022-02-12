@@ -7,9 +7,7 @@ import db from 'utils/db'
 function Home({newProducts}) {
   return (
     <>
-      <BasicLayout description="">
         <HomePage newProducts={newProducts} />
-      </BasicLayout>
     </>
   );
 }

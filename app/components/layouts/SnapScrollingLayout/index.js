@@ -2,7 +2,8 @@ import Head from 'next/head';
 import FloatedCartIcon from '@element/FloatedCartIcon';
 import styles from './index.module.scss';
 import { useEffect, useRef } from 'react';
-import SnapScrollingGsap from '../../templates/HomePage/SnapScrollingGsap';
+
+import SnapScrollingGsap from './SnapScrollingGsap';
 
 const SnapScrollingLayout = ({ title, description, components }) => {
   const containerRef = useRef();
