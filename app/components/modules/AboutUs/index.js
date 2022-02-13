@@ -11,7 +11,6 @@ import {
 } from 'chart.js';
 import Image from 'next/image';
 
-import SocialIcons from '@element/SocialIcons';
 import { useState, useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
 

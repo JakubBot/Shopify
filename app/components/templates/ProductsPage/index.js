@@ -3,10 +3,14 @@ import Products from '@module/Products';
 
 import uniqid from 'uniqid';
 
-const ProductsPage = () => {
-  const components = [<Products key={uniqid()} />];
+const ProductsPage = ({ products }) => {
+  const components = products.map((product, index) => {
+    return <Products key={uniqid()} product={{ ...product, index }} />;
+  });
 
-  return <SnapScrollingLayout positionCartIcon="right" components={components} />;
+  return (
+    <SnapScrollingLayout positionCartIcon="right" components={components} />
+  );
 };
 
 export default ProductsPage;

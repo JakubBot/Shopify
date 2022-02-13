@@ -1,5 +1,4 @@
 import HomePage from '@template/HomePage';
-import BasicLayout from '@layout/BasicLayout';
 import Product from 'models/Product'
 
 import db from 'utils/db'

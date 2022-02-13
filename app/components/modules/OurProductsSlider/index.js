@@ -11,7 +11,7 @@ const OurProductsSlider = ({ newProducts }) => {
     setWidth(carusel.current.scrollWidth - carusel.current.offsetWidth);
   }, []);
   return (
-    <>
+    <div>
       <div className={styles.productSliderContainer}>
         <h2 className={styles.productTitle}>Our Products</h2>
 
@@ -56,7 +56,7 @@ const OurProductsSlider = ({ newProducts }) => {
           </a>
         </Link>
       </div>
-    </>
+    </div>
   );
 };
 

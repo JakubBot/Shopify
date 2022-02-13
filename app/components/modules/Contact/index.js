@@ -34,7 +34,7 @@ const Contact = () => {
   };
   
   return (
-    <>
+    <div>
       <div className={styles.contactContainer}>
         <div className={styles.contact}>
           <h2 className={styles.title}>New ideas?</h2>
@@ -80,7 +80,7 @@ const Contact = () => {
         <SocialIcons lDesktop />
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 

@@ -3,7 +3,7 @@ import FloatedCartIcon from '@element/FloatedCartIcon';
 import styles from './index.module.scss';
 import { useEffect, useRef } from 'react';
 
-import SnapScrollingGsap from './SnapScrollingGsap';
+import SnapScrollingGsap, { clearPageScrolling } from './SnapScrollingGsap';
 
 const SnapScrollingLayout = ({
   title,
@@ -11,9 +11,11 @@ const SnapScrollingLayout = ({
   components,
   positionCartIcon,
 }) => {
-  const containerRef = useRef();
+  const containerRef = useRef(null);
   useEffect(() => {
-    SnapScrollingGsap(containerRef);
+  SnapScrollingGsap(containerRef);
+
+  return () => clearPageScrolling()
   }, []);
   return (
     <>

@@ -15,12 +15,13 @@
 
 .listItem {
   margin: 0 10px;
-  font-size: clamp(15px, 1.5vw, 25px);
+  font-size: clamp(15px, 1.5vw, 23px);
   font-weight: 600;
-  color: #d6d6d6;
+  color: #d0d0d0;
   cursor: pointer;
   z-index: 1;
-
+  font-weight: bold
+  ;
   &:hover {
     color: #efefef;
   }
@@ -37,7 +38,7 @@
   background-color: rgb(30, 30, 35);
   bottom: -150px;
   right: -550px;
-
+  
   @include rwd(800) {
     bottom: -130px;
     right: -450px;
