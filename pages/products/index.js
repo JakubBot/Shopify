@@ -14,6 +14,7 @@ export async function getStaticProps() {
   db.connect();
   const products = await Product.find({ isFeatured: false }).lean();
   products[0].isFirst = true;
+  products[products.length - 1].isLast = true
   db.disconnect();
 
   return {

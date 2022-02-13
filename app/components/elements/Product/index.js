@@ -2,11 +2,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import styles from './index.module.scss';
-const Product = ({ product: { name, slug, image,isFirst,index }  }) => {
+const Product = ({ product: { name, slug, image, isFirst, index } }) => {
   return (
     <div className={styles.productWrapper}>
       <div className={styles.productContainer}>
-        <div className={styles.productImg}>
+        <div
+          className={`${styles.productImg} ${isFirst ? styles.firstImg : ''} `}
+        >
           <div className={styles.img}>
             <span className={styles.productNumber}>.{index + 1}</span>
 

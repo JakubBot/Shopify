@@ -39,7 +39,7 @@ const snapScrolling = (containerRef) => {
     ease: 'none',
 
     scrollTrigger: {
-      id: 'sa',
+      id: 'snapScrolling',
       trigger: container,
       scrub: 1,
       start: 'top top',
@@ -55,7 +55,7 @@ const snapScrolling = (containerRef) => {
 };
 
 export function clearPageScrolling() {
-  ScrollTrigger.getById('sa').kill(true);
+  ScrollTrigger.getById('snapScrolling').kill(true);
 }
 
 export default snapScrolling;
