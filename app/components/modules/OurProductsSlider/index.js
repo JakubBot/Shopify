@@ -26,14 +26,16 @@ const OurProductsSlider = ({ newProducts }) => {
             {newProducts.map((image, index) => {
               return (
                 <div key={image._id} className={styles.productContainer}>
-                  <button
-                    type="button"
-                    className={styles.productContainerButton}
-                  >
-                    <Link href={image.slug}>
-                      <a>Read more</a>
-                    </Link>
-                  </button>
+                  <Link href={`/products/${image.slug}`}>
+                    <a>
+                      <button
+                        type="button"
+                        className={styles.productContainerButton}
+                      >
+                        Read more
+                      </button>
+                    </a>
+                  </Link>
                   <Image
                     src={image.image}
                     alt=""

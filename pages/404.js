@@ -3,7 +3,7 @@ const Page404 = () => {
 
 return (
 <>
-sa
+404 Page
 </>
 )
 }

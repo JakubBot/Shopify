@@ -1,15 +1,23 @@
 import db from '@util/db';
 import Product from 'models/Product';
-
+import ProductPageTemplate from '@template/ProductPage';
+import BasicLayout from '@layout/BasicLayout';
 const ProductPage = ({ product }) => {
-  console.log(product);
-  return <>s</>;
+  return (
+    <>
+      <BasicLayout title={`Shopify - ${product.name}`}  positionCartIcon="right">
+        <ProductPageTemplate product={product} />
+      </BasicLayout>
+    </>
+  );
 };
 
 export async function getStaticPaths() {
   db.connect();
   const products = await Product.find({ isFeatured: false }).limit(3);
-  let popularProductSlug = products.map((product) => product.slug);
+  const featuredProducts = await Product.find({ isFeatured: true }).limit(3);
+  let allProducts = [...products, ...featuredProducts];
+  let popularProductSlug = allProducts.map((product) => product.slug);
   db.disconnect();
 
   const createParams = popularProductSlug.map((slug) => {
@@ -19,7 +27,7 @@ export async function getStaticPaths() {
   });
   return {
     paths: [...createParams],
-    fallback: false, // false or 'blocking'
+    fallback: 'blocking', // false or 'blocking'
   };
 }
 
