@@ -12,12 +12,12 @@
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  gap: 30px;
   @include phone {
     padding: 20px 70px 0;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    gap: 30px;
   }
   @include sDesktop {
     padding: 0px 60px;
@@ -34,11 +34,18 @@
   width: 100%;
   display: grid;
   grid-template-rows: auto 40px;
-  margin-top: 60px;
-}
-.productImg.firstImg {
-  margin-top: 10px;
+  margin-top: 40px;
 
+  @include tablet {
+    margin-top: -10px;
+  }
+}
+
+.productImg.firstImg {
+  margin-top: 5px;
+  @include tablet {
+    margin-top: -50px;
+  }
   @include desktop {
     margin-top: -100px;
   }
@@ -129,7 +136,10 @@
   margin: 12px 0 8px;
   font-weight: 600;
   @include desktop {
-    padding-right: 160px;
+    padding-right: 100px;
+  }
+  @include lDesktop {
+    padding-right: 150px;
   }
 }
 
