@@ -38,7 +38,7 @@ const Product = ({ product: { name, slug, image, isFirst, index } }) => {
           </h4>
 
           <button className={styles.productButton}>
-            <Link href={slug}>
+            <Link href={`/products/${slug}`}>
               <a>Read more</a>
             </Link>
           </button>

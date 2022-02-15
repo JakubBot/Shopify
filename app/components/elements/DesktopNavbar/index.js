@@ -5,7 +5,7 @@ const DesktopNavbar = () => {
     <nav className={styles.nav}>
       <ul className={styles.list}>
         <li className={styles.listItem}>
-          <Link href="/prodcuts">
+          <Link href="/products">
             <a>Our products</a>
           </Link>
         </li>

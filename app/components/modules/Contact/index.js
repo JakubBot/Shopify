@@ -32,9 +32,9 @@ const Contact = () => {
       });
     });
   };
-  
+
   return (
-    <div>
+    <>
       <div className={styles.contactContainer}>
         <div className={styles.contact}>
           <h2 className={styles.title}>New ideas?</h2>
@@ -46,7 +46,8 @@ const Contact = () => {
               label="userName"
               errors={errors}
               register={register}
-              type="text"
+              type="name"
+              inputType="text"
             />
             <InputComponent
               labelName="Email"
@@ -54,6 +55,8 @@ const Contact = () => {
               errors={errors}
               register={register}
               type="email"
+              inputType="text"
+
             />
             <InputComponent
               labelName="Message"
@@ -61,6 +64,8 @@ const Contact = () => {
               errors={errors}
               register={register}
               type="message"
+              inputType="text"
+
             />
 
             <button
@@ -80,7 +85,7 @@ const Contact = () => {
         <SocialIcons lDesktop />
       </div>
       <Footer />
-    </div>
+    </>
   );
 };
 

@@ -5,10 +5,17 @@ import styles from './index.module.scss';
 const emailPattern =
   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
-const InputComponent = ({ errors, register, labelName, label, type }) => {
+const InputComponent = ({
+  errors,
+  register,
+  labelName,
+  label,
+  type,
+  inputType,
+}) => {
   const email = {
     isEmail: type === 'email' ? true : false,
-    pattern: emailPattern
+    pattern: emailPattern,
   };
   const message = {
     isMessage: type === 'message' ? true : false,
@@ -20,6 +27,48 @@ const InputComponent = ({ errors, register, labelName, label, type }) => {
     min: 4,
     max: 15,
   };
+  const password = {
+    isPassword: type === 'password' ? true : false,
+    min: 5,
+    max: 14,
+  };
+
+  const errorMessage = (type) => {
+    return {
+      minLength: {
+        value: type.min,
+        message: `At least ${type.min} characters`,
+      },
+      maxLength: {
+        value: type.max,
+        message: `Up to ${type.max} characters`,
+      },
+      required: {
+        value: true,
+        message: `${labelName} is required`,
+      },
+    };
+  };
+
+  const checkErrors = () => {
+    if (message.isMessage) return errorMessage(message);
+    if (name.isName) return errorMessage(name);
+    if (password.isPassword) return errorMessage(password);
+
+    if (email.isEmail) {
+      return {
+        pattern: {
+          value: email.pattern,
+          message: 'Email Address not valid',
+        },
+        required: {
+          value: true,
+          message: `${labelName} is required`,
+        },
+      };
+    }
+  };
+
   return (
     <>
       <div className={styles.inputContainer}>
@@ -28,40 +77,9 @@ const InputComponent = ({ errors, register, labelName, label, type }) => {
         </label>
         <input
           className={styles.input}
-          type="text"
+          type={inputType}
           id={label}
-          {...register(
-            label,
-            email.isEmail
-              ? {
-                  pattern: {
-                    value: email.pattern,
-                    message: 'Email Address not valid',
-                  },
-                  required: {
-                    value: true,
-                    message: `${label} is required`,
-                  },
-                }
-              : {
-                  minLength: {
-                    value: message.isMessage ? message.min : name.min,
-                    message: `At least ${
-                      message.isMessage ? message.min : name.min
-                    } characters`,
-                  },
-                  maxLength: {
-                    value: message.isMessage ? message.max : name.max,
-                    message: `Up to ${
-                      message.isMessage ? message.max : name.max
-                    } characters`,
-                  },
-                  required: {
-                    value: true,
-                    message: `${label} is required`,
-                  },
-                }
-          )}
+          {...register(label, checkErrors())}
         />
         <ErrorMessage
           errors={errors}
