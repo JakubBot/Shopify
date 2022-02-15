@@ -12,7 +12,7 @@ const IcosahedronSmall = () => {
   return (
     <mesh ref={icoSmall}>
       <icosahedronBufferGeometry args={[4.5, 1]} />
-      <meshPhongMaterial flatShading  />
+      <meshPhongMaterial flatShading />
     </mesh>
   );
 };
@@ -31,7 +31,6 @@ const IcosahedronBig = () => {
     </mesh>
   );
 };
-
 const Icosahedron = () => {
   return (
     <>

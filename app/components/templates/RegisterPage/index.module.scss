@@ -7,9 +7,36 @@
 .register {
   flex: 1 1 auto;
   padding: 30px 30px 50px;
+  height: 100%;
+  @include sDesktop {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    // justify-content: space-around;
+    // align-items: center;
+  }
+  @include sDesktop {
+    padding-bottom: 80px;
+  }
 }
+.registerForm {
+  justify-self: center;
+  align-self: center;
+  padding: 30px 20px;
+  width: 100%;
+  max-width: 700px;
+  @include desktop {
+    justify-self: center;
+    align-self: center;
+    margin: 0 30px 50px;
+  }
+}
+
+.title {
+  font-size: clamp(20px, 2vw, 30px);
+}
+
 .form {
-  max-width: 400px;
+  flex: 1 1 auto;
 }
 .button {
   font-size: clamp(14px, 2vw, 15px);
@@ -25,6 +52,18 @@
   }
 }
 
+.icosahedron {
+  display: none;
+  height: 100%;
+  width: 100%;
+  max-width: 600px;
+  justify-self: flex-start;
+  align-self: center;
+
+  @include sDesktop {
+    display: initial;
+  }
+}
 .marquee {
   white-space: nowrap;
   transform: translateX(-200px);
