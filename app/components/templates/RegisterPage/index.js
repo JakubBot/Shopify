@@ -2,14 +2,20 @@ import Header from '@element/Header';
 import Footer from '@element/Footer';
 import styles from './index.module.scss';
 import { useForm } from 'react-hook-form';
-
+import { ErrorMessage } from '@hookform/error-message';
 import InputComponent from '@element/InputComponent';
-import { useEffect } from 'react';
 import Icosahedron from '@element/Icosahedron';
+import { useRouter } from 'next/router';
+import axios from 'axios';
+
 const RegisterPage = () => {
+  const router = useRouter();
+  const { redirect } = router.query;
   const {
     register,
     handleSubmit,
+    setError,
+    reset,
     formState: { errors },
   } = useForm({
     criteriaMode: 'all',
@@ -21,23 +27,26 @@ const RegisterPage = () => {
     },
   });
   const onSubmit = async (state) => {
-    console.log(state);
-    // await axios.post('/api/ideas', state).then(() => {
-    //   reset({
-    //     userName: '',
-    //     email: '',
-    //     message: '',
-    //   });
-    // });
+    const { password, confirmedPassword } = state;
+    if (password !== confirmedPassword) {
+      setError('passwords', {
+        types: {
+          message: 'Passwords are not the same',
+        },
+      });
+      return;
+    }
+    await axios.post('/api/users/register', state).then(() => {
+      reset({
+        userName: '',
+        email: '',
+        password: '',
+        confirmedPassword: '',
+      });
+      router.push(redirect || '/');
+    });
   };
-  useEffect(() => {
-    // gsap.to('#marquee', {
-    //   x: "+=200",
-    //   duration: 1.6,
-    //   repeat: -1,
-    //   ease: "none",
-    // })
-  }, []);
+
   return (
     <div className={styles.registerContainer}>
       <Header />
@@ -72,11 +81,23 @@ const RegisterPage = () => {
             />
             <InputComponent
               labelName="Confirm Password"
-              label="confirmPassword"
+              label="confirmedPassword"
               errors={errors}
               register={register}
               type="password"
               inputType="password"
+            />
+            <ErrorMessage
+              errors={errors}
+              name="passwords"
+              render={({ messages }) =>
+                messages &&
+                Object.entries(messages).map(([type, message]) => (
+                  <p className={styles.error} key={type}>
+                    {message}
+                  </p>
+                ))
+              }
             />
             <button className={styles.button} type="submit">
               Register

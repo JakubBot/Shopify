@@ -21,9 +21,9 @@
 .registerForm {
   justify-self: center;
   align-self: center;
-  padding: 30px 20px;
+  // padding: 10px 20px;
   width: 100%;
-  max-width: 700px;
+  max-width: 600px;
   @include desktop {
     justify-self: center;
     align-self: center;
@@ -73,5 +73,15 @@
   span {
     margin: 0 30px;
     font-size: clamp(16px, 2vw, 20px);
+  }
+}
+
+.error {
+  color: #bf1650;
+  font-size: clamp(13px, 2vw, 16px);
+  margin: 0 0 5px;
+  &::before {
+    display: inline;
+    content: '⚠ ';
   }
 }
