@@ -5,20 +5,18 @@ import bcrypt from 'bcryptjs/dist/bcrypt';
 
 const handler = nc();
 
-handler.post(async (req,res) => {
-  const { name, email, password } = req.body;
+handler.post(async (req, res) => {
+  const { email, password } = req.body;
+  console.log(email);
+  console.log(password);
   await db.connect();
-  const newUser = await new User({
-    name,
-    email,
-    password: bcrypt.hashSync(password),
-  });
-  newUser.save();
+  const user = await User.findOne({ email });
   await db.disconnect();
-
-
-  // zwaracnie user z json token
-  res.send({ mes: 'sa' });
+  if (user && bcrypt.compareSync(password, user.password)) {
+    res.send(user);
+  } else {
+    res.status(401).send({ message: 'Invalid email or password' });
+  }
 });
 
 export default handler;

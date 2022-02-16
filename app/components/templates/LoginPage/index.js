@@ -11,7 +11,6 @@ const RegisterPage = () => {
   const {
     register,
     handleSubmit,
-    setError,
     reset,
     formState: { errors },
   } = useForm({
@@ -22,22 +21,22 @@ const RegisterPage = () => {
     },
   });
   const onSubmit = async (state) => {
-    const { password, confirmedPassword } = state;
-    if (password !== confirmedPassword) {
-      setError('passwords', {
-        types: {
-          message: 'Passwords are not the same',
-        },
+    try {
+      await axios.post('/api/users/login', state).then((user) => {
+        console.log(user);
+        reset({
+          email: '',
+          password: '',
+        });
+        router.push(redirect || '/');
       });
-      return;
+    } catch (err) {
+      alert(
+        err.response && err.response.data && err.response.data.message
+          ? err.response.data.message
+          : err.message
+      );
     }
-    await axios.post('/api/users/register', state).then(() => {
-      reset({
-        email: '',
-        password: '',
-      });
-      router.push(redirect || '/');
-    });
   };
 
   return (
