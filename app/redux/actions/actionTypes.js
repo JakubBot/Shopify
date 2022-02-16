@@ -1,5 +1,5 @@
  const actionTypes = {
-  SAVE_NAME: 'SAVE_NAME'
+  SAVE_USER: 'SAVE_USER'
 }
 
 export default actionTypes

@@ -5,7 +5,10 @@ import InputComponent from '@element/InputComponent';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import IcosahedronLayout from '@layout/IcosahedronLayout';
-const RegisterPage = () => {
+import { connect } from 'react-redux';
+import * as userActions from '@redux/actions/userActions';
+
+const RegisterPage = ({ saveUser }) => {
   const router = useRouter();
   const { redirect } = router.query;
   const {
@@ -24,6 +27,7 @@ const RegisterPage = () => {
     try {
       await axios.post('/api/users/login', state).then((user) => {
         console.log(user.data);
+        saveUser(user.data);
         reset({
           email: '',
           password: '',
@@ -83,7 +87,17 @@ const RegisterPage = () => {
   );
 };
 
-export default RegisterPage;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user
+  }
+};
+
+const mapDispatchToProps = {
+  saveUser: userActions.saveUser,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterPage);
 
 // import Header from '@element/Header';
 // import Footer from '@element/Footer';
