@@ -17,10 +17,8 @@ const RegisterPage = () => {
   } = useForm({
     criteriaMode: 'all',
     defaultValues: {
-      name: '',
       email: '',
       password: '',
-      confirmedPassword: '',
     },
   });
   const onSubmit = async (state) => {
@@ -35,10 +33,8 @@ const RegisterPage = () => {
     }
     await axios.post('/api/users/register', state).then(() => {
       reset({
-        name: '',
         email: '',
         password: '',
-        confirmedPassword: '',
       });
       router.push(redirect || '/');
     });
@@ -46,18 +42,10 @@ const RegisterPage = () => {
 
   return (
     <IcosahedronLayout>
-      <div className={styles.registerForm}>
-        <h2 className={styles.title}>Register Form</h2>
+      <div className={styles.loginForm}>
+        <h2 className={styles.title}>Login Form</h2>
 
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-          <InputComponent
-            labelName="Name"
-            label="name"
-            errors={errors}
-            register={register}
-            type="name"
-            inputType="text"
-          />
           <InputComponent
             labelName="Email"
             label="email"
@@ -74,14 +62,7 @@ const RegisterPage = () => {
             type="password"
             inputType="password"
           />
-          <InputComponent
-            labelName="Confirm Password"
-            label="confirmedPassword"
-            errors={errors}
-            register={register}
-            type="password"
-            inputType="password"
-          />
+
           <ErrorMessage
             errors={errors}
             name="passwords"
@@ -95,7 +76,7 @@ const RegisterPage = () => {
             }
           />
           <button className={styles.button} type="submit">
-            Register
+            Login
           </button>
         </form>
       </div>
@@ -104,3 +85,22 @@ const RegisterPage = () => {
 };
 
 export default RegisterPage;
+
+// import Header from '@element/Header';
+// import Footer from '@element/Footer';
+
+// import styles from './index.module.scss'
+// const LoginPage = () => {
+
+// return (
+// <div className={styles.loginPageContainer}>
+//   <Header />
+//   <div className={styles.loginPage}>
+
+//   </div>
+//   <Footer />
+// </div>
+// )
+// }
+
+// export default LoginPage;

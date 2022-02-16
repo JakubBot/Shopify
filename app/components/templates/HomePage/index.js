@@ -17,25 +17,6 @@ const HomePage = ({ newProducts }) => {
   return (
     <>
       <SnapScrollingLayout components={components} />
-      {/* <SnapScrollingLayout>
-        <div>
-          <FloatedCartIcon />
-
-          <div
-            ref={containerRef}
-            id="container"
-            className={styles.homeContainer}
-          >
-            {components.map((component) => {
-              return (
-                <section className={styles.section} key={component.key}>
-                  {component}
-                </section>
-              );
-            })}
-          </div>
-        </div>
-      </SnapScrollingLayout> */}
     </>
   );
 };
