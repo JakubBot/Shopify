@@ -23,7 +23,7 @@ const RegisterPage = () => {
   const onSubmit = async (state) => {
     try {
       await axios.post('/api/users/login', state).then((user) => {
-        console.log(user);
+        console.log(user.data);
         reset({
           email: '',
           password: '',
