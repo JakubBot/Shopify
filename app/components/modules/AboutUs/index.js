@@ -65,43 +65,45 @@ const AboutUs = () => {
   }, []);
 
   return (
-    <div className={styles.aboutUsContainer}>
-      <div className={styles.dataContainer}>
-        <h1 className={styles.aboutUsTitle}>Who we are?</h1>
+    <div>
+      <div className={styles.aboutUsContainer} id="about">
+        <div className={styles.dataContainer}>
+          <h1 className={styles.aboutUsTitle}>Who we are?</h1>
 
-        <div className={styles.chartJs}>
-          <h3 className={styles.chartJsTitle}>Number of clients</h3>
-          <Line
-            id="char"
-            type="line"
-            options={{
-              responsive: true,
-              maintainAspectRatio: true,
-            }}
-            data={dat}
-          />
-        </div>
-        <div className={styles.data}>
-          <h3 className={styles.dataTitle}>History</h3>
-          <div className={styles.companyHistory}>
-            {`  Brothers Maurice and Richard founded Shopify's first restaurant, Get
+          <div className={styles.chartJs}>
+            <h3 className={styles.chartJsTitle}>Number of clients</h3>
+            <Line
+              id="char"
+              type="line"
+              options={{
+                responsive: true,
+                maintainAspectRatio: true,
+              }}
+              data={dat}
+            />
+          </div>
+          <div className={styles.data}>
+            <h3 className={styles.dataTitle}>History</h3>
+            <div className={styles.companyHistory}>
+              {`  Brothers Maurice and Richard founded Shopify's first restaurant, Get
             Shopify's Corporation in 2010, transforming their restaurant into
             online restaurants. The original Shopify focused on its burgers,
             fries, and smoothies selling them at half the price and very fast
             compared to competing restaurants. They later moved online with even
             greater success and continue to do so today`}
+            </div>
           </div>
         </div>
-      </div>
-      <div className={styles.imgContainer}>
-        <Image
-          src="/kayaks/kayaks1.webp"
-          alt="kayaks"
-          className={styles.img}
-          layout="responsive"
-          width={500}
-          height={500}
-        />
+        <div className={styles.imgContainer}>
+          <Image
+            src="/kayaks/kayaks1.webp"
+            alt="kayaks"
+            className={styles.img}
+            layout="responsive"
+            width={500}
+            height={500}
+          />
+        </div>
       </div>
     </div>
   );

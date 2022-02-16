@@ -12,7 +12,7 @@ const OurProductsSlider = ({ newProducts }) => {
   }, []);
   return (
     <div>
-      <div className={styles.productSliderContainer}>
+      <div id='slider' className={styles.productSliderContainer}>
         <h2 className={styles.productTitle}>Our Products</h2>
 
         <div className={styles.productSlider} ref={carusel}>

@@ -1,27 +1,50 @@
 import Link from 'next/link';
 import styles from './index.module.scss';
+import { gsap } from 'gsap';
+import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin';
+
+gsap.registerPlugin(ScrollToPlugin);
+//slider
+//contact
 const DesktopNavbar = () => {
+  const scrollToSection = (e) => {
+    e.preventDefault();
+    let target = e.target.getAttribute('data-scroll');
+    console.log(target);
+    gsap.to(window, {
+      duration: 2,
+      scrollTo: `#${target}`,
+      ease: 'expo.inOut',
+    });
+  };
+
   return (
     <nav className={styles.nav}>
       <ul className={styles.list}>
         <li className={styles.listItem}>
           <Link href="/">
-            <a>Our products</a>
+            <a data-scroll="slider" onClick={scrollToSection}>
+              Our products
+            </a>
           </Link>
         </li>
         <li className={styles.listItem}>
           <Link href="/">
-            <a>About us</a>
+            <a data-scroll="about" onClick={scrollToSection}>
+              About us
+            </a>
           </Link>
         </li>
         <li className={styles.listItem}>
           <Link href="/">
-            <a>Contact</a>
+            <a data-scroll="contact" onClick={scrollToSection}>
+              Contact
+            </a>
           </Link>
         </li>
         <li className={styles.listItem}>
           <Link href="/login">
-            <a>Login</a>
+            <a> Login</a>
           </Link>
         </li>
       </ul>
