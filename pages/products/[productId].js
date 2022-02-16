@@ -18,9 +18,9 @@ export async function getStaticPaths() {
   db.connect();
   const products = await Product.find({ isFeatured: false }).limit(3);
   const featuredProducts = await Product.find({ isFeatured: true }).limit(3);
+  db.disconnect();
   let allProducts = [...products, ...featuredProducts];
   let popularProductSlug = allProducts.map((product) => product.slug);
-  db.disconnect();
 
   const createParams = popularProductSlug.map((slug) => {
     return {
