@@ -5,17 +5,17 @@ const DesktopNavbar = () => {
     <nav className={styles.nav}>
       <ul className={styles.list}>
         <li className={styles.listItem}>
-          <Link href="/products">
+          <Link href="/">
             <a>Our products</a>
           </Link>
         </li>
         <li className={styles.listItem}>
-          <Link href="/about">
+          <Link href="/">
             <a>About us</a>
           </Link>
         </li>
         <li className={styles.listItem}>
-          <Link href="/contact">
+          <Link href="/">
             <a>Contact</a>
           </Link>
         </li>
