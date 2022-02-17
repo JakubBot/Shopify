@@ -14,26 +14,9 @@ const ProductPage = ({ product }) => {
   );
 };
 
-export async function getStaticPaths() {
-  db.connect();
-  const products = await Product.find({ isFeatured: false }).limit(2);
-  const featuredProducts = await Product.find({ isFeatured: true }).limit(2);
-  db.disconnect();
-  let allProducts = [...products, ...featuredProducts];
-  let popularProductSlug = allProducts.map((product) => product.slug);
 
-  const createParams = popularProductSlug.map((slug) => {
-    return {
-      params: { productId: slug },
-    };
-  });
-  return {
-    paths: [...createParams],
-    fallback: 'blocking',
-  };
-}
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   const {
     params: { productId },
   } = context;
