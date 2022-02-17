@@ -6,7 +6,7 @@ import { signToken } from '@util/auth';
 
 const handler = nc();
 
-handler.post(async (req,res) => {
+handler.post(async (req, res) => {
   const { name, email, password } = req.body;
   await db.connect();
   const newUser = await new User({
@@ -14,15 +14,15 @@ handler.post(async (req,res) => {
     email,
     password: bcrypt.hashSync(password),
   });
-  newUser.save();
+  await newUser.save();
   await db.disconnect();
 
-  const token = signToken(newUser)
+  const token = signToken(newUser);
   // zwaracnie user z json token
   res.send({
     token,
     name,
-    email
+    email,
   });
 });
 

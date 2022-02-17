@@ -7,7 +7,7 @@ handler.post(async (req) => {
   const data = req.body;
   await db.connect();
   const idea = await new Idea(data);
-  idea.save();
+  await idea.save();
   await db.disconnect();
 });
 
