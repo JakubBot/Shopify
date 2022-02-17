@@ -8,7 +8,7 @@ import IcosahedronLayout from '@layout/IcosahedronLayout';
 import { connect } from 'react-redux';
 import * as userActions from '@redux/actions/userActions';
 
-const RegisterPage = ({ saveUser }) => {
+const LoginPage = ({ saveUser }) => {
   const router = useRouter();
   const { redirect } = router.query;
   const {
@@ -25,15 +25,13 @@ const RegisterPage = ({ saveUser }) => {
   });
   const onSubmit = async (state) => {
     try {
-      await axios.post('/api/users/login', state).then((user) => {
-        console.log(user.data);
-        saveUser(user.data);
-        reset({
-          email: '',
-          password: '',
-        });
-        router.push(redirect || '/');
+      const { data } = await axios.post('/api/users/login', state);
+      saveUser(data);
+      reset({
+        email: '',
+        password: '',
       });
+      router.push(redirect || '/');
     } catch (err) {
       alert(
         err.response && err.response.data && err.response.data.message
@@ -89,31 +87,13 @@ const RegisterPage = ({ saveUser }) => {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user
-  }
+    user: state.user,
+  };
 };
 
 const mapDispatchToProps = {
   saveUser: userActions.saveUser,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(RegisterPage);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
 
-// import Header from '@element/Header';
-// import Footer from '@element/Footer';
-
-// import styles from './index.module.scss'
-// const LoginPage = () => {
-
-// return (
-// <div className={styles.loginPageContainer}>
-//   <Header />
-//   <div className={styles.loginPage}>
-
-//   </div>
-//   <Footer />
-// </div>
-// )
-// }
-
-// export default LoginPage;

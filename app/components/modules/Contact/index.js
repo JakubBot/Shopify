@@ -22,20 +22,27 @@ const Contact = () => {
       message: '',
     },
   });
-  const onSubmit = async (state) => {
-    await axios.post('/api/ideas', state).then(() => {
+  const onSubmit = (state) => {
+    try {
+      axios.post('/api/ideas', state);
       setActiveButton(false);
       reset({
         userName: '',
         email: '',
         message: '',
       });
-    });
+    } catch (err) {
+      alert(
+        err.response && err.response.data && err.response.data.message
+          ? err.response.data.message
+          : err.message
+      );
+    }
   };
 
   return (
     <>
-      <div id='contact' className={styles.contactContainer}>
+      <div id="contact" className={styles.contactContainer}>
         <div className={styles.contact}>
           <h2 className={styles.title}>New ideas?</h2>
 
@@ -56,7 +63,6 @@ const Contact = () => {
               register={register}
               type="email"
               inputType="text"
-
             />
             <InputComponent
               labelName="Message"
@@ -65,7 +71,6 @@ const Contact = () => {
               register={register}
               type="message"
               inputType="text"
-
             />
 
             <button
@@ -75,7 +80,6 @@ const Contact = () => {
               }`}
             >
               {activeButton ? 'Submit' : 'Thanks'}
-              
             </button>
           </form>
         </div>
