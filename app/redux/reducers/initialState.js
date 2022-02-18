@@ -4,6 +4,7 @@ const initialState = {
     email: '',
     token: ''
   },
+  products: []
 };
 
 export default initialState;

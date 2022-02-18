@@ -2,8 +2,33 @@ import Header from '@element/Header';
 import Footer from '@element/Footer';
 import styles from './index.module.scss';
 import Image from 'next/image';
+import { useState } from 'react';
+import { connect } from 'react-redux';
+import * as productActions from '@redux/actions/productAction';
+import {useRouter} from 'next/router'
+const ProductPage = ({ product, addProduct }) => {
+  const [quantity, setQuantity] = useState(1);
 
-const ProductPage = ({ product }) => {
+  const router = useRouter()
+
+  const addProducts = () => {
+    const { name, price } = product;
+    addProduct({
+      name,
+      price,
+      quantity,
+    });
+
+    router.push('/products')
+  };
+  const increaseQuantity = () => {
+    setQuantity(quantity + 1);
+  };
+  const decreaseQuantity = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
   return (
     <>
       <div className={styles.productContainer}>
@@ -31,17 +56,30 @@ const ProductPage = ({ product }) => {
             <div className={styles.free}>
               <p>Glutamin free</p>
             </div>
+
             <div className={styles.productButtonContainer}>
               <div className={styles.productButtonDetails}>
-                <span className={styles.buttonIncrement}>-</span>
-                <button className={styles.counter}>1</button>
-                <span className={styles.buttonDecrement}>+</span>
+                <span
+                  className={styles.buttonIncrement}
+                  onClick={decreaseQuantity}
+                >
+                  -
+                </span>
+                <button className={styles.counter}>{quantity}</button>
+                <span
+                  className={styles.buttonDecrement}
+                  onClick={increaseQuantity}
+                >
+                  +
+                </span>
               </div>
               <div className={styles.productPr}>
                 <h4>$19.99</h4>
               </div>
             </div>
-            <button className={styles.addToCart}>Add to cart</button>
+            <button className={styles.addToCart} onClick={addProducts}>
+              Add to cart
+            </button>
           </div>
         </div>
         <Footer />
@@ -50,4 +88,8 @@ const ProductPage = ({ product }) => {
   );
 };
 
-export default ProductPage;
+const mapDispatchToProps = {
+  addProduct: productActions.addProduct,
+};
+
+export default connect(null, mapDispatchToProps)(ProductPage);

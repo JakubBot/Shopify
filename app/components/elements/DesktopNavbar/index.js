@@ -10,7 +10,6 @@ const DesktopNavbar = () => {
   const scrollToSection = (e) => {
     e.preventDefault();
     let target = e.target.getAttribute('data-scroll');
-    console.log(target);
     gsap.to(window, {
       duration: 2,
       scrollTo: `#${target}`,
