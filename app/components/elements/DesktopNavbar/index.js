@@ -6,9 +6,10 @@ import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin';
 gsap.registerPlugin(ScrollToPlugin);
 //slider
 //contact
-const DesktopNavbar = () => {
+const DesktopNavbar = ({ isHome }) => {
   const scrollToSection = (e) => {
-    e.preventDefault();
+    if (!isHome) return
+      e.preventDefault();
     let target = e.target.getAttribute('data-scroll');
     gsap.to(window, {
       duration: 2,

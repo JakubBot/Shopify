@@ -7,7 +7,7 @@ import uniqid from 'uniqid';
 const HomePage = ({ newProducts }) => {
 
   const components = [
-    <HomeWelcome key={uniqid()} />,
+    <HomeWelcome key={uniqid()} isHome />,
     <OurProductsSlider key={uniqid()} newProducts={newProducts} />,
     <AboutUs key={uniqid()} />,
     <Contact key={uniqid()} />,

@@ -4,12 +4,14 @@ import styles from './index.module.scss';
 import Image from 'next/image';
 import { useState } from 'react';
 import { connect } from 'react-redux';
-import * as productActions from '@redux/actions/productAction';
-import {useRouter} from 'next/router'
+import * as productActions from '@redux/actions/productActions';
+import { useRouter } from 'next/router';
+import uniqid from 'uniqid';
+
 const ProductPage = ({ product, addProduct }) => {
   const [quantity, setQuantity] = useState(1);
 
-  const router = useRouter()
+  const router = useRouter();
 
   const addProducts = () => {
     const { name, price } = product;
@@ -17,9 +19,10 @@ const ProductPage = ({ product, addProduct }) => {
       name,
       price,
       quantity,
+      id: uniqid(),
     });
 
-    router.push('/products')
+    router.push('/products');
   };
   const increaseQuantity = () => {
     setQuantity(quantity + 1);

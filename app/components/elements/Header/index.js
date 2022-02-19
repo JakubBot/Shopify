@@ -6,7 +6,7 @@ import getTimeLine from './timeline';
 
 let timeline;
 
-const Header = () => {
+const Header = ({ isHome }) => {
   const [isActive, setIsActive] = useState(false);
   const [isMobile, setIsMobile] = useState(
     window.innerWidth > 550 ? false : true
@@ -61,7 +61,7 @@ const Header = () => {
           <MobileNavbar navbarRef={navbarRef} listRef={listRef} />
         </>
       ) : (
-        <DesktopNavbar />
+        <DesktopNavbar isHome={isHome ? true : false} />
       )}
     </header>
   );

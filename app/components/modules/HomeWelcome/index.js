@@ -21,7 +21,7 @@ const HomeWelcome = () => {
   }, []);
   return (
     <div >
-      <Header />
+      <Header isHome />
       <div className={styles.wavyImageContainter}>
         <WavyImage />
         <h3 className={styles.wavyImageTitle}>Welcome in SHOPIFY</h3>
