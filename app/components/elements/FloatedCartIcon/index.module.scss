@@ -109,14 +109,24 @@
 }
 
 .listSumContainer {
+  padding-top: 15px;
   width: 100%;
   list-style-type: none;
   display: grid;
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: 2fr 2fr 1.8fr;
 }
 .listSum,
 .listPrice {
   margin-top: 6px;
   justify-self: center;
   font-weight: 600;
+}
+.buyBtn {
+  width: 100%;
+  background-color: rgb(17, 17, 21);
+  color: #dfdfdf;
+  padding: 6px 10px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
 }

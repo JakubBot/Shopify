@@ -4,7 +4,13 @@ const initialState = {
     email: '',
     token: ''
   },
-  products: []
+  products: [],
+  shippingAddress: {
+    fullName: '',
+    address: '',
+    city: '',
+    postalCode: '',
+  }
 };
 
 export default initialState;

@@ -52,7 +52,6 @@ const LoginPage = ({ saveUser }) => {
             label="email"
             errors={errors}
             register={register}
-            type="email"
             inputType="text"
           />
           <InputComponent
@@ -60,7 +59,6 @@ const LoginPage = ({ saveUser }) => {
             label="password"
             errors={errors}
             register={register}
-            type="password"
             inputType="password"
           />
 

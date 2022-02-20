@@ -1,38 +1,16 @@
 import { ErrorMessage } from '@hookform/error-message';
-
+import getType from './types';
 import styles from './index.module.scss';
 
-const emailPattern =
-  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
 const InputComponent = ({
   errors,
   register,
   labelName,
   label,
-  type,
+
   inputType,
 }) => {
-  const email = {
-    isEmail: type === 'email' ? true : false,
-    pattern: emailPattern,
-  };
-  const message = {
-    isMessage: type === 'message' ? true : false,
-    min: 20,
-    max: 100,
-  };
-  const name = {
-    isName: type === 'name' ? true : false,
-    min: 4,
-    max: 15,
-  };
-  const password = {
-    isPassword: type === 'password' ? true : false,
-    min: 5,
-    max: 14,
-  };
-
   const errorMessage = (type) => {
     return {
       minLength: {
@@ -51,14 +29,15 @@ const InputComponent = ({
   };
 
   const checkErrors = () => {
-    if (message.isMessage) return errorMessage(message);
-    if (name.isName) return errorMessage(name);
-    if (password.isPassword) return errorMessage(password);
+    const type = getType(label);
+    if (type?.isPassword) return errorMessage(type);
+    if (type?.isShippingAddress) return errorMessage(type);
+    if (type?.isMessage) return errorMessage(type);
 
-    if (email.isEmail) {
+    if (type?.isEmail) {
       return {
         pattern: {
-          value: email.pattern,
+          value: type.pattern,
           message: 'Email Address not valid',
         },
         required: {

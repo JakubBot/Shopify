@@ -50,10 +50,9 @@ const Contact = () => {
           <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
             <InputComponent
               labelName="Name"
-              label="userName"
+              label="name"
               errors={errors}
               register={register}
-              type="name"
               inputType="text"
             />
             <InputComponent
@@ -61,7 +60,6 @@ const Contact = () => {
               label="email"
               errors={errors}
               register={register}
-              type="email"
               inputType="text"
             />
             <InputComponent
@@ -69,7 +67,6 @@ const Contact = () => {
               label="message"
               errors={errors}
               register={register}
-              type="message"
               inputType="text"
             />
 

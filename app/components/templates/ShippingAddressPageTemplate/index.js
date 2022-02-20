@@ -1,4 +1,3 @@
-import styles from './index.module.scss';
 import { useForm } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 import InputComponent from '@element/InputComponent';
@@ -8,87 +7,79 @@ import IcosahedronLayout from '@layout/IcosahedronLayout';
 import { connect } from 'react-redux';
 import * as userActions from '@redux/actions/userActions';
 
-const RegisterPage = ({saveUser}) => {
+import styles from './index.module.scss';
+
+
+const LoginPage = ({ saveUser }) => {
   const router = useRouter();
   const { redirect } = router.query;
   const {
     register,
     handleSubmit,
-    setError,
     reset,
     formState: { errors },
   } = useForm({
     criteriaMode: 'all',
     defaultValues: {
-      name: '',
-      email: '',
-      password: '',
-      confirmedPassword: '',
+      fullName: '',
+      address: '',
+      city: '',
+      postalCode: '',
     },
   });
   const onSubmit = async (state) => {
-    const { password, confirmedPassword } = state;
-    if (password !== confirmedPassword) {
-      setError('passwords', {
-        types: {
-          message: 'Passwords are not the same',
-        },
-      });
-      return;
-    }
-    try {
-      const { data } = await axios.post('/api/users/register', state);
-      saveUser(data)
-      reset({
-        name: '',
-        email: '',
-        password: '',
-        confirmedPassword: '',
-      });
-      router.push(redirect || '/');
-    } catch (err) {
-      alert(
-        err.response && err.response.data && err.response.data.message
-          ? err.response.data.message
-          : err.message
-      );
-    }
+    // try {
+    //   const { data } = await axios.post('/api/users/login', state);
+    //   saveUser(data);
+    //   reset({
+    //     email: '',
+    //     password: '',
+    //   });
+    //   router.push(redirect || '/');
+    // } catch (err) {
+    //   alert(
+    //     err.response && err.response.data && err.response.data.message
+    //       ? err.response.data.message
+    //       : err.message
+    //   );
+    // }
   };
 
   return (
     <IcosahedronLayout>
-      <div className={styles.registerForm}>
-        <h2 className={styles.title}>Register Form</h2>
+      <div className={styles.loginForm}>
+        <h2 className={styles.title}>Shipping Address</h2>
 
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <InputComponent
-            labelName="Name"
+            labelName="Full Name"
             label="name"
             errors={errors}
             register={register}
             inputType="text"
           />
           <InputComponent
-            labelName="Email"
-            label="email"
+            labelName="Address"
+            label="address"
             errors={errors}
             register={register}
             inputType="text"
           />
           <InputComponent
-            labelName="Password"
-            label="password"
+            labelName="City"
+            label="city"
             errors={errors}
             register={register}
-            inputType="password"
+            inputType="text"
           />
           <InputComponent
-            labelName="Confirm Password"
-            label="confirmedPassword"
+            labelName="Postal Code"
+            label="postalCode"
             errors={errors}
             register={register}
-            inputType="password"
+            inputType="text"
           />
+
           <ErrorMessage
             errors={errors}
             name="passwords"
@@ -102,7 +93,7 @@ const RegisterPage = ({saveUser}) => {
             }
           />
           <button className={styles.button} type="submit">
-            Register
+            Login
           </button>
         </form>
       </div>
@@ -110,11 +101,14 @@ const RegisterPage = ({saveUser}) => {
   );
 };
 
-
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
 
 const mapDispatchToProps = {
   saveUser: userActions.saveUser,
 };
 
-
-export default connect(null, mapDispatchToProps)(RegisterPage);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);

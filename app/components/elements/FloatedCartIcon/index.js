@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import styles from './index.module.scss';
 import { BsCart2 } from 'react-icons/bs';
 import { connect } from 'react-redux';
+import Link from 'next/link';
 import * as productActions from '@redux/actions/productActions';
 
 const FloatedCart = ({ products, deleteProduct }) => {
@@ -40,7 +41,7 @@ const FloatedCart = ({ products, deleteProduct }) => {
             <span></span>
           </li>
           {products.map((product) => {
-            const { name, quantity, price,id } = product;
+            const { name, quantity, price, id } = product;
             return (
               <li key={id} className={`${styles.listItemHeader}`}>
                 <span className={styles.listTitle}>{name}</span>
@@ -58,27 +59,12 @@ const FloatedCart = ({ products, deleteProduct }) => {
           <li className={`${styles.listSumContainer}`}>
             <span className={styles.listSum}>Sum</span>
             <span className={`${styles.listPrice}`}>{productsPrice}$</span>
-            {/* <span className={styles.listTitle}>Price</span> */}
+            <span className={`${styles.buyBtn}`}>
+              <Link href="/shippingAddress">
+                <a>Buy</a>
+              </Link>
+            </span>
           </li>
-          {/* <li className={`${styles.listItemHeader}`}>
-          <span className={styles.listTitle}>Item</span>
-          <span className={`${styles.listTitle}`}>Quantity</span>
-          <span className={styles.listTitle}>Price</span>
-        </li>
-        <li className={`${styles.listItemHeader}`}>
-          <span className={styles.listTitle}>Cos tam</span>
-          <span className={`${styles.listTitle}  ${styles.listQuantity}`}>
-            2
-          </span>
-          <span className={styles.listTitle}>16.99$</span>
-        </li>
-        <li className={`${styles.listItemHeader}`}>
-          <span className={styles.listTitle}>Cos tam</span>
-          <span className={`${styles.listTitle}  ${styles.listQuantity}`}>
-            2
-          </span>
-          <span className={styles.listTitle}>16.99$</span>
-        </li> */}
         </ul>
       </div>
     </>

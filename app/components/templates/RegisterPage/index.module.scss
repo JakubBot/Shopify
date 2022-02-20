@@ -45,13 +45,3 @@
     font-size: clamp(16px, 2vw, 20px);
   }
 }
-
-.error {
-  color: #bf1650;
-  font-size: clamp(13px, 2vw, 16px);
-  margin: 0 0 5px;
-  &::before {
-    display: inline;
-    content: '⚠ ';
-  }
-}
