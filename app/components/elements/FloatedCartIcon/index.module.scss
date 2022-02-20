@@ -21,8 +21,17 @@
   color: #212331;
   font-size: 1.4em;
   transition: 0.3s ease-in-out;
+  pointer-events: none;
 }
-
+.number {
+  position: absolute;
+  top: 0px;
+  right: 8px;
+  font-size: 18px;
+  color: rgb(20, 35, 97);
+  font-weight: 600;
+  pointer-events: none;
+}
 .list {
   position: absolute;
   bottom: 55px;
@@ -77,8 +86,7 @@
   color: #ebebeb;
   background-color: rgb(168, 31, 44);
   border-radius: 10px;
-  border:unset;
-
+  border: unset;
 }
 .listQuantity {
   padding-left: 20px;
@@ -129,4 +137,15 @@
   display: grid;
   place-items: center;
   border-radius: 14px;
+}
+
+.emptyCart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+.emptyCartTitle {
+  color: rgb(17, 17, 31);
+  font-size: 16px;
 }

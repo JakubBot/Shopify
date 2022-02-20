@@ -9,7 +9,7 @@ const ProductsPage = ({ products }) => {
   });
 
   return (
-    <SnapScrollingLayout positionCartIcon="right" components={components} />
+    <SnapScrollingLayout  components={components} />
   );
 };
 

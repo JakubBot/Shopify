@@ -4,17 +4,14 @@ import ProductPageTemplate from '@template/ProductPage';
 import BasicLayout from '@layout/BasicLayout';
 
 const ProductPage = ({ product }) => {
-
   return (
     <>
-      <BasicLayout title={`Shopify - ${product.name}`} positionCartIcon="right">
+      <BasicLayout title={`Shopify - ${product.name}`}>
         <ProductPageTemplate product={product} />
       </BasicLayout>
     </>
   );
 };
-
-
 
 export async function getServerSideProps(context) {
   const {

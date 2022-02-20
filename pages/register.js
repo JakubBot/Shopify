@@ -3,7 +3,7 @@ import BasicLayout from '@layout/BasicLayout';
 const RegisterPage = () => {
   return (
     <>
-      <BasicLayout title="Shopify - Register" positionCartIcon="right">
+      <BasicLayout title="Shopify - Register">
         <RegisterPageTemplate />
       </BasicLayout>
     </>

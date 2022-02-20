@@ -5,7 +5,7 @@ const ShippingAddress = () => {
 
 return (
 <>
-<BasicLayout title="Shopify - Register" positionCartIcon="right">
+<BasicLayout title="Shopify - Register" >
         <ShippingAddressPageTemplate />
       </BasicLayout>
 </>

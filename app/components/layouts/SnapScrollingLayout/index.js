@@ -9,7 +9,6 @@ const SnapScrollingLayout = ({
   title,
   description,
   components,
-  positionCartIcon,
 }) => {
   const containerRef = useRef(null);
   useEffect(() => {
@@ -30,7 +29,7 @@ const SnapScrollingLayout = ({
         ></meta>
       </Head>
       <div>
-        <FloatedCartIcon position={positionCartIcon} />
+        <FloatedCartIcon  />
 
         <div ref={containerRef} className={styles.homeContainer}>
           {components.map((component) => {

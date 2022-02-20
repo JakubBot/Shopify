@@ -2,17 +2,15 @@ import { useForm } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 import InputComponent from '@element/InputComponent';
 import { useRouter } from 'next/router';
-import axios from 'axios';
 import IcosahedronLayout from '@layout/IcosahedronLayout';
 import { connect } from 'react-redux';
-import * as userActions from '@redux/actions/userActions';
+import * as shippingAddress from '@redux/actions/shippingAddress';
 
 import styles from './index.module.scss';
+import { useEffect } from 'react';
 
-
-const LoginPage = ({ saveUser }) => {
+const LoginPage = ({ user, saveShippingAddress }) => {
   const router = useRouter();
-  const { redirect } = router.query;
   const {
     register,
     handleSubmit,
@@ -27,22 +25,16 @@ const LoginPage = ({ saveUser }) => {
       postalCode: '',
     },
   });
+  useEffect(() => {
+    if (!user.token) router.push('/login?redirect=/shippingAddress');
+  }, [user, router]);
   const onSubmit = async (state) => {
-    // try {
-    //   const { data } = await axios.post('/api/users/login', state);
-    //   saveUser(data);
-    //   reset({
-    //     email: '',
-    //     password: '',
-    //   });
-    //   router.push(redirect || '/');
-    // } catch (err) {
-    //   alert(
-    //     err.response && err.response.data && err.response.data.message
-    //       ? err.response.data.message
-    //       : err.message
-    //   );
-    // }
+    saveShippingAddress(state);
+    reset({
+      email: '',
+      password: '',
+    });
+    router.push('/order');
   };
 
   return (
@@ -93,7 +85,7 @@ const LoginPage = ({ saveUser }) => {
             }
           />
           <button className={styles.button} type="submit">
-            Login
+            Add Address
           </button>
         </form>
       </div>
@@ -108,7 +100,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-  saveUser: userActions.saveUser,
+  saveShippingAddress: shippingAddress.saveShippingAddress,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);

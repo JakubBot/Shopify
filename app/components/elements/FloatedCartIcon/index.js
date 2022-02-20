@@ -32,40 +32,44 @@ const FloatedCart = ({ products, deleteProduct }) => {
       >
         <span className={styles.icon}>
           <BsCart2 />
+          <span className={styles.number}>{products.length}</span>
         </span>
-        <ul className={styles.list}>
-          <li className={`${styles.listItemHeader}`}>
-            <span className={styles.listTitle}>Item</span>
-            <span className={`${styles.listTitle}`}>Quantity</span>
-            <span className={styles.listTitle}>Price</span>
-            <span></span>
-          </li>
-          {products.map((product) => {
-            const { name, quantity, price, id } = product;
-            return (
-              <li key={id} className={`${styles.listItemHeader}`}>
-                <span className={styles.listTitle}>{name}</span>
-                <span className={`${styles.listTitle}`}>{quantity}</span>
-                <span className={styles.listTitle}>{price}</span>
-                <button
-                  className={styles.deleteButton}
-                  onClick={() => deleteProducts(product)}
-                >
-                  Delete
-                </button>
-              </li>
-            );
-          })}
-          <li className={`${styles.listSumContainer}`}>
-            <span className={styles.listSum}>Sum</span>
-            <span className={`${styles.listPrice}`}>{productsPrice}$</span>
-            <span className={`${styles.buyBtn}`}>
-              <Link href="/shippingAddress">
-                <a>Buy</a>
-              </Link>
-            </span>
-          </li>
-        </ul>
+
+        {products.length !== 0 && (
+          <ul className={styles.list}>
+            <li className={styles.listItemHeader}>
+              <span className={styles.listTitle}>Item</span>
+              <span className={`${styles.listTitle}`}>Quantity</span>
+              <span className={styles.listTitle}>Price</span>
+              <span></span>
+            </li>
+            {products.map((product) => {
+              const { name, quantity, price, id } = product;
+              return (
+                <li key={id} className={`${styles.listItemHeader}`}>
+                  <span className={styles.listTitle}>{name}</span>
+                  <span className={`${styles.listTitle}`}>{quantity}</span>
+                  <span className={styles.listTitle}>{price}</span>
+                  <button
+                    className={styles.deleteButton}
+                    onClick={() => deleteProducts(product)}
+                  >
+                    Delete
+                  </button>
+                </li>
+              );
+            })}
+            <li className={`${styles.listSumContainer}`}>
+              <span className={styles.listSum}>Sum</span>
+              <span className={`${styles.listPrice}`}>{productsPrice}$</span>
+              <span className={`${styles.buyBtn}`}>
+                <Link href="/shippingAddress">
+                  <a>Buy</a>
+                </Link>
+              </span>
+            </li>
+          </ul>
+        )}
       </div>
     </>
   );

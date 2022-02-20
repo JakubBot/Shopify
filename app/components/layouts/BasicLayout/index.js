@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import FloatedCartIcon from '@element/FloatedCartIcon';
-const BasicLayout = ({ children, title, description, positionCartIcon }) => {
+const BasicLayout = ({ children, title, description }) => {
   return (
     <>
       <Head>
@@ -13,7 +13,7 @@ const BasicLayout = ({ children, title, description, positionCartIcon }) => {
           }
         ></meta>
       </Head>
-      <FloatedCartIcon position={positionCartIcon} />
+      <FloatedCartIcon  />
       {children}
     </>
   );

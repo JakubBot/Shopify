@@ -25,10 +25,9 @@
   flex: 1 1 auto;
 }
 .button {
-  font-size: clamp(16px, 1.4vw, 18px);
-
-  width: 110px;
-  height: 36px;
+  font-size: clamp(14px, 1.1vw, 16px);
+  width: 150px;
+  height: 40px;
   @extend %products__btn;
 
   @include desktop {
