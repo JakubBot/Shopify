@@ -63,7 +63,7 @@ const FloatedCart = ({ products, deleteProduct }) => {
               <span className={styles.listSum}>Sum</span>
               <span className={`${styles.listPrice}`}>{productsPrice}$</span>
               <span className={`${styles.buyBtn}`}>
-                <Link href="/shippingAddress">
+                <Link href="/order">
                   <a>Buy</a>
                 </Link>
               </span>

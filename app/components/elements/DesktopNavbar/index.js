@@ -3,14 +3,18 @@ import styles from './index.module.scss';
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin';
 import { scrollToSection } from '@util/gsap';
+import { useRouter } from 'next/router';
 gsap.registerPlugin(ScrollToPlugin);
-//slider
-//contact
+
 const DesktopNavbar = ({ isHome }) => {
+  const router = useRouter();
   const scrollTo = (e) => {
     let dataScroll = e.target.getAttribute('data-scroll');
-
-    scrollToSection(dataScroll, isHome);
+    if (isHome) {
+      scrollToSection(dataScroll, isHome);
+    } else {
+      router.push(`/?scrollTo=${dataScroll}`);
+    }
   };
 
   return (
