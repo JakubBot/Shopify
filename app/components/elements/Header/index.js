@@ -3,7 +3,8 @@ import styles from './index.module.scss';
 import MobileNavbar from '@element/MobileNavbar';
 import DesktopNavbar from '@element/DesktopNavbar';
 import getTimeLine from './timeline';
-
+import { scrollToSection } from '@util/gsap';
+import { useRouter } from 'next/router';
 let timeline;
 
 const Header = ({ isHome }) => {
@@ -11,16 +12,20 @@ const Header = ({ isHome }) => {
   const [isMobile, setIsMobile] = useState(
     window.innerWidth > 550 ? false : true
   );
-
+  const router = useRouter();
   const burgerRef = useRef();
   const navbarRef = useRef();
   const listRef = useRef();
 
-  const changeBurger = () => {
+  const changeBurger = (e) => {
     if (!isActive) {
       timeline.play();
     } else {
-      timeline.reverse();
+      const dataScroll = e.target.parentElement.getAttribute('data-scroll');
+      timeline.reverse().then(() => {
+        if (!isHome) router.push('/');
+        else scrollToSection(dataScroll, isHome);
+      });
     }
     setIsActive(!isActive);
     burgerRef.current.classList.toggle('active');
@@ -58,7 +63,11 @@ const Header = ({ isHome }) => {
             <div className={styles.burgerLine}></div>
             <div className={styles.burgerLine}></div>
           </div>
-          <MobileNavbar navbarRef={navbarRef} listRef={listRef} />
+          <MobileNavbar
+            onClick={changeBurger}
+            navbarRef={navbarRef}
+            listRef={listRef}
+          />
         </>
       ) : (
         <DesktopNavbar isHome={isHome ? true : false} />

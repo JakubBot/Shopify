@@ -5,9 +5,9 @@ import Icosahedron from '@element/Icosahedron';
 
 const IcosahedronLayout = ({ children }) => {
   return (
-    <div className={styles.registerContainer}>
+    <div className={styles.icosahedronContainer}>
       <Header />
-      <div className={styles.register}>
+      <div className={styles.contentContainer}>
         {children}
         <div className={styles.icosahedron}>
           <Icosahedron />

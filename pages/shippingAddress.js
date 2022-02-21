@@ -4,7 +4,7 @@ import BasicLayout from '@layout/BasicLayout';
 const ShippingAddress = () => {
   return (
     <>
-      <BasicLayout title="Shopify - Register">
+      <BasicLayout title="Shopify - Shipping address">
         <ShippingAddressPageTemplate />
       </BasicLayout>
     </>

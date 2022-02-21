@@ -49,7 +49,7 @@ const FloatedCart = ({ products, deleteProduct }) => {
                 <li key={id} className={`${styles.listItemHeader}`}>
                   <span className={styles.listTitle}>{name}</span>
                   <span className={`${styles.listTitle}`}>{quantity}</span>
-                  <span className={styles.listTitle}>{price}</span>
+                  <span className={styles.listTitle}>{price}$</span>
                   <button
                     className={styles.deleteButton}
                     onClick={() => deleteProducts(product)}

@@ -11,7 +11,6 @@ const productsReducer = (state = initialState.products, action) => {
       const newProducts = state.filter(
         (product) => product.id !== deleteProduct.id
       );
-      console.log(newProducts);
       return [...newProducts];
     }
     default:
