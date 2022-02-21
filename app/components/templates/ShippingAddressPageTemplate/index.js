@@ -9,8 +9,10 @@ import * as shippingAddress from '@redux/actions/shippingAddress';
 import styles from './index.module.scss';
 import { useEffect } from 'react';
 
-const LoginPage = ({ user, saveShippingAddress }) => {
+const LoginPage = ({ user, shippingAddress, saveShippingAddress }) => {
+  const { fullName, address, city, postalCode } = shippingAddress;
   const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -19,10 +21,10 @@ const LoginPage = ({ user, saveShippingAddress }) => {
   } = useForm({
     criteriaMode: 'all',
     defaultValues: {
-      fullName: '',
-      address: '',
-      city: '',
-      postalCode: '',
+      fullName: fullName || '',
+      address: address || '',
+      city: city || '',
+      postalCode: postalCode || '',
     },
   });
   useEffect(() => {
@@ -45,7 +47,7 @@ const LoginPage = ({ user, saveShippingAddress }) => {
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <InputComponent
             labelName="Full Name"
-            label="name"
+            label="fullName"
             errors={errors}
             register={register}
             inputType="text"
@@ -94,8 +96,10 @@ const LoginPage = ({ user, saveShippingAddress }) => {
 };
 
 const mapStateToProps = (state) => {
+  const { user, shippingAddress } = state;
   return {
-    user: state.user,
+    user,
+    shippingAddress,
   };
 };
 

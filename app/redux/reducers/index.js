@@ -2,12 +2,12 @@ import { combineReducers } from 'redux';
 
 import user from './userReducer';
 import products from './productsReducer';
-import address from './shippingAddressReducer';
+import shippingAddress from './shippingAddressReducer';
 
 const rootReducer = combineReducers({
   user,
   products,
-  address
+  shippingAddress
 });
 
 export default rootReducer;
