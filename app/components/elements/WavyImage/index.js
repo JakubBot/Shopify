@@ -48,7 +48,7 @@ const Wave = () => {
   });
   return (
     <mesh>
-      <planeGeometry args={[0.7,0.9, 32, 32]} />
+      <planeGeometry args={[0.7,1, 32, 32]} />
       <wavyShaderMaterial ref={ref} uTexture={texture} />
     </mesh>
   );

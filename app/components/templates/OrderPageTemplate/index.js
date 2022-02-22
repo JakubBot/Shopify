@@ -4,20 +4,42 @@ import { connect } from 'react-redux';
 import styles from './index.module.scss';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import uniqid from 'uniqid';
+import { useState } from 'react';
+
 const OrderPageTemplate = ({ products, shippingAddress, user }) => {
   const router = useRouter();
+  const [productsPrice, setProductsPrice] = useState(0);
   useEffect(() => {
     if (!user.token) router.push('/login?redirect=/order');
     if (Object.values(shippingAddress).some((adress) => adress === ''))
       router.push('/shippingAddress');
   }, [shippingAddress, router, user]);
+  const shipping = {
+    fullName: {
+      value: shippingAddress.fullName,
+      title: 'Full Name',
+    },
+    address: {
+      value: shippingAddress.address,
+      title: 'Address',
+    },
+    city: {
+      value: shippingAddress.city,
+      title: 'City',
+    },
+    postalCode: {
+      value: shippingAddress.postalCode,
+      title: 'Postal Code',
+    },
+  };
 
   return (
     <div className={styles.orderContainer}>
       <Header />
       <div className={styles.order}>
         <div className={styles.orderProducts}>
-          <h2 className={styles.orderTitle}>Your Products</h2>
+          <h3 className={styles.orderTitle}>Your Products</h3>
           <ul className={styles.productList}>
             <li className={styles.product}>
               <span className={`${styles.productCell} ${styles.productName}`}>
@@ -46,9 +68,30 @@ const OrderPageTemplate = ({ products, shippingAddress, user }) => {
               );
             })}
           </ul>
+          <div className={styles.sum}>
+            <span className={styles.sumCell}>Sum</span>
+            <span className={styles.sumCell}>{productsPrice}$</span>
+          </div>
         </div>
         <div className={styles.payment}>
-          <h2>sa</h2>
+          <div>
+            <h3 className={styles.paymentTitle}>Payment</h3>
+          </div>
+          <div>
+            <button>PayPal</button>
+          </div>
+          <button>PayPal</button>
+        </div>
+        <div className={styles.shipping}>
+          <div>
+            <h3 className={styles.shippingTitle}>Shopping address</h3>
+          </div>
+          {Object.values(shipping).map(({ title, value }) => (
+            <div key={uniqid()} className={styles.wrapper}>
+              <span>{title}:</span>
+              <span>{value}</span>
+            </div>
+          ))}
         </div>
       </div>
       <Footer />

@@ -1,8 +1,6 @@
 @import 'styles/app.scss';
 
-.HomeWelcomeContainer {
-  // padding-bottom: 50px;
-}
+
 
 .wavyImageContainter {
   overflow-x: hidden;
@@ -10,7 +8,7 @@
   margin-top: -50px;
   min-height: 400px;
   width: 100%;
-  height: 580px;
+  height: 600px;
   position: relative;
   @include rwd(550) {
     margin-top: 0px;
@@ -19,15 +17,18 @@
 
   @include tablet {
     margin-top: -20px;
-    height: 750px;
+    height: 720px;
   }
   @include desktop {
-    margin-top: -80px;
+    margin-top: -40px;
 
-    height: 750px;
+    height: 720px;
   }
   @include lDesktop {
-    height: 800px;
+    margin-top: -40px;
+
+
+    height: 820px;
   }
 }
 
@@ -39,7 +40,7 @@
   white-space: nowrap;
   mix-blend-mode: exclusion;
   color: white;
-  font-size: clamp(25px, 4.5vw, 60px);
+  font-size: clamp(25px, 3.6vw, 60px);
 }
 
 .circleText {
@@ -62,8 +63,8 @@
 }
 .goProducts {
   position: absolute;
-  bottom: 50px;
-  right: 6px;
+  bottom: 60px;
+  right: 8px;
 
   @include tablet {
     bottom: 25px;
@@ -74,17 +75,17 @@
     right: 5px;
   }
   @include desktop {
-    bottom: 35px;
+    bottom: 34px;
     right: 10px;
   }
   @include lDesktop {
-    bottom: 55px;
+    bottom: 40px;
     right: 25px;
   }
 }
 .goProductsLink {
   border-bottom: 1px solid #3f3f3f;
-  font-size: clamp(20px, 3vw, 34px);
+  font-size: clamp(20px, 2.7vw, 30px);
   color: rgba(19,19,24,0.7);
   margin: 10px;
 }

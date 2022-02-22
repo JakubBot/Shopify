@@ -20,7 +20,7 @@ const HomeWelcome = () => {
     });
   }, []);
   return (
-    <div className={styles.HomeWelcomeContainer}>
+    <div>
       <Header isHome />
       <div className={styles.wavyImageContainter}>
         <WavyImage />

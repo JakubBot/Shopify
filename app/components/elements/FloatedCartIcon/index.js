@@ -17,7 +17,7 @@ const FloatedCart = ({ products, deleteProduct }) => {
       const { price, quantity } = product;
       return acc + price * quantity;
     }, 0);
-    setProductsPrice(priceSum);
+    setProductsPrice(priceSum.toFixed(2));
   }, [products]);
 
   const deleteProducts = (product) => {

@@ -14,13 +14,13 @@
 
 .productTitle {
   font-size: clamp(30px, 3vw, 50px);
-  margin: 20px 0 30px;
+  margin: 20px 0 10px;
   color: rgb(19, 19, 24);
   letter-spacing: 1px;
 }
 
 .productSlider {
-  margin-top: 55px;
+  margin-top: 42px;
   overflow-x: hidden;
   cursor: grab;
 }
@@ -96,8 +96,8 @@
 
 .goProducts {
   position: absolute;
-  bottom: 45px;
-  right: 5px;
+  bottom: 54px;
+  right: 6px;
 
   @include tablet {
     bottom: 25px;
