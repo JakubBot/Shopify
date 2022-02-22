@@ -1,112 +1,112 @@
-@import 'styles/app.scss';
+// @import 'styles/app.scss';
 
-.homeContainer {
-  background-color: #f0f0f0;
+// .homeContainer {
+//   background-color: #f0f0f0;
 
-}
+// }
 
-.wavyImageContainter {
-  padding: 0px 35px;
-  margin-top: -50px;
-  min-height: 400px;
-  width: 100%;
-  height: 600px;
-  position: relative;
-  @include rwd(550) {
-    margin-top: 0px;
-    height: 600px;
-  }
+// .wavyImageContainter {
+//   padding: 0px 35px;
+//   margin-top: -50px;
+//   min-height: 400px;
+//   width: 100%;
+//   height: 600px;
+//   position: relative;
+//   @include rwd(550) {
+//     margin-top: 0px;
+//     height: 600px;
+//   }
 
-  @include tablet {
-    margin-top: -20px;
-    height: 750px;
-  }
-  @include desktop {
-    margin-top: -80px;
+//   @include tablet {
+//     margin-top: -20px;
+//     height: 750px;
+//   }
+//   @include desktop {
+//     margin-top: -80px;
 
-    height: 750px;
-  }
-  @include lDesktop {
-    height: 800px;
-  }
-}
+//     height: 750px;
+//   }
+//   @include lDesktop {
+//     height: 800px;
+//   }
+// }
 
-.wavyImageTitle {
-  position: absolute;
-  bottom: 150px;
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-  mix-blend-mode: exclusion;
-  color: white;
-  font-size: clamp(25px, 4.5vw, 60px);
-}
+// .wavyImageTitle {
+//   position: absolute;
+//   bottom: 150px;
+//   left: 50%;
+//   transform: translateX(-50%);
+//   white-space: nowrap;
+//   mix-blend-mode: exclusion;
+//   color: white;
+//   font-size: clamp(25px, 4.5vw, 60px);
+// }
 
-.circleText {
-  position: absolute;
-  color: #1f1f1f;
-  top: 40px;
-  right: calc(30%);
-  mix-blend-mode: exclusion;
-  color: white;
-  font-weight: 600;
-  font-size: clamp(16px, 1.5vw, 20px);
-  letter-spacing: 2px;
+// .circleText {
+//   position: absolute;
+//   color: #1f1f1f;
+//   top: 40px;
+//   right: calc(30%);
+//   mix-blend-mode: exclusion;
+//   color: white;
+//   font-weight: 600;
+//   font-size: clamp(16px, 1.5vw, 20px);
+//   letter-spacing: 2px;
 
-  @include tablet {
-    right: 38%;
-  }
-  @include desktop {
-    right: 45%;
-  }
-}
-.goProducts {
-  position: absolute;
-  bottom: 18px;
-  right: 5px;
+//   @include tablet {
+//     right: 38%;
+//   }
+//   @include desktop {
+//     right: 45%;
+//   }
+// }
+// .goProducts {
+//   position: absolute;
+//   bottom: 18px;
+//   right: 5px;
 
-  @include tablet {
-    bottom: 25px;
-    right: 5px;
-  }
-  @include sDesktop {
-    bottom: 25px;
-    right: 5px;
-  }
-  @include desktop {
-    bottom: 35px;
-    right: 10px;
-  }
-  @include lDesktop {
-    bottom: 55px;
-    right: 25px;
-  }
-}
-.goProductsLink {
-  border-bottom: 1px solid #3f3f3f;
-  font-size: clamp(20px, 3vw, 34px);
-  color: #1f1f1f;
-  margin: 10px;
-}
+//   @include tablet {
+//     bottom: 25px;
+//     right: 5px;
+//   }
+//   @include sDesktop {
+//     bottom: 25px;
+//     right: 5px;
+//   }
+//   @include desktop {
+//     bottom: 35px;
+//     right: 10px;
+//   }
+//   @include lDesktop {
+//     bottom: 55px;
+//     right: 25px;
+//   }
+// }
+// .goProductsLink {
+//   border-bottom: 1px solid #3f3f3f;
+//   font-size: clamp(20px, 3vw, 34px);
+//   color: #1f1f1f;
+//   margin: 10px;
+// }
 
-.section {
-  height: 100vh;
-  position: relative;
-}
+// .section {
+//   height: 100vh;
+//   position: relative;
+// }
 
-.socialIcons {
-  position: absolute;
-  left: 0;
-  top: 55%;
-  flex-direction: column;
-  gap: 24px;
-  font-size: clamp(32px,3vw,36px);
-  color: rgb(19,19,24);
-  display: none;
-  margin: 0 20px;
-  cursor: pointer;
-  @include sDesktop {
-    display: flex;
-  }
-}
+// .socialIcons {
+//   position: absolute;
+//   left: 0;
+//   top: 55%;
+//   flex-direction: column;
+//   gap: 24px;
+//   font-size: clamp(32px,3vw,36px);
+//   color: rgb(19,19,24);
+//   display: none;
+//   margin: 0 20px;
+//   cursor: pointer;
+//   @include sDesktop {
+//     display: flex;
+//   }
+// }
 

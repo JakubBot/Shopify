@@ -20,7 +20,7 @@ const HomeWelcome = () => {
     });
   }, []);
   return (
-    <div >
+    <div className={styles.HomeWelcomeContainer}>
       <Header isHome />
       <div className={styles.wavyImageContainter}>
         <WavyImage />
@@ -30,7 +30,7 @@ const HomeWelcome = () => {
         </h4>
       </div>
       <div className={styles.goProducts}>
-        <Link href="/products"  >
+        <Link href="/products">
           <a>
             <h3 className={styles.goProductsLink}>Go to products</h3>
           </a>
