@@ -7,8 +7,17 @@ import { useRouter } from 'next/router';
 import uniqid from 'uniqid';
 import { useState } from 'react';
 import { totalPricesProducts } from '@util/helperFunctions';
+import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
+import axios from 'axios';
+import * as productActions from '@redux/actions/productActions';
+import { toast } from 'react-toastify';
 
-const OrderPageTemplate = ({ products, shippingAddress, user }) => {
+const OrderPageTemplate = ({ products, shippingAddress, user, clearCart }) => {
+  const initialOptions = {
+    'client-id': process.env.NEXT_PUBLIC_CLIENT_ID_PAYPAL,
+    currency: 'USD',
+  };
+
   const router = useRouter();
   const [productsPrice, setProductsPrice] = useState(0);
   useEffect(() => {
@@ -40,6 +49,52 @@ const OrderPageTemplate = ({ products, shippingAddress, user }) => {
       title: 'Postal Code',
     },
   };
+  // function saveOrder() {
+  //   try {
+  //     axios.post(
+  //       '/api/orders',
+  //       { products, shippingAddress },
+  //       {
+  //         headers: {
+  //           authorization: `Bearer ${user.token}`,
+  //         },
+  //       }
+  //     );
+  //     clearCart();
+  //     toast.success('Order was saved', {
+  //       theme: 'colored',
+  //     });
+  //     router.push('/');
+  //   } catch (err) {
+  //     alert(err);
+  //   }
+  // }
+
+  function onApprove(data, actions) {
+    return actions.order.capture().then(async function (details) {
+      try {
+        axios.post(
+          '/api/orders',
+          { products, shippingAddress },
+          {
+            headers: {
+              authorization: `Bearer ${user.token}`,
+            },
+          }
+        );
+        clearCart();
+        toast.success('Order was saved', {
+          theme: 'colored',
+        });
+        router.push('/');
+      } catch (err) {
+        toast.error('Error occurred, try again', {
+          theme: 'colored',
+        });
+        alert(err);
+      }
+    });
+  }
 
   return (
     <div className={styles.orderContainer}>
@@ -87,10 +142,24 @@ const OrderPageTemplate = ({ products, shippingAddress, user }) => {
             <div>
               <h3 className={styles.paymentTitle}>Payment</h3>
             </div>
-            <div>
-              <button>PayPal</button>
-            </div>
-            <button>PayPal</button>
+            <PayPalScriptProvider options={initialOptions}>
+              <div className={styles.paymentButtons}>
+                <PayPalButtons
+                  createOrder={(data, actions) => {
+                    return actions.order.create({
+                      purchase_units: [
+                        {
+                          amount: {
+                            value: productsPrice,
+                          },
+                        },
+                      ],
+                    });
+                  }}
+                  onApprove={onApprove}
+                />
+              </div>
+            </PayPalScriptProvider>
           </div>
         </div>
         <div className={styles.shipping}>
@@ -127,4 +196,8 @@ const mapStateToProps = (state) => {
   return { products, shippingAddress, user };
 };
 
-export default connect(mapStateToProps)(OrderPageTemplate);
+const mapDispatchToProps = {
+  clearCart: productActions.clearCart,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(OrderPageTemplate);

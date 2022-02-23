@@ -5,6 +5,7 @@ import DesktopNavbar from '@element/DesktopNavbar';
 import getTimeLine from './timeline';
 import { scrollToSection } from '@util/gsap';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 let timeline;
 
 const Header = ({ isHome }) => {
@@ -46,9 +47,13 @@ const Header = ({ isHome }) => {
   }, [isMobile]);
   return (
     <header className={styles.header}>
-      <h2 className={styles.title}>
-        Shop<span className={styles.emptySpan}>ify</span>
-      </h2>
+      <Link href="/">
+        <a>
+          <h2 className={styles.title}>
+            Shop<span className={styles.emptySpan}>ify</span>
+          </h2>
+        </a>
+      </Link>
 
       {isMobile ? (
         <>

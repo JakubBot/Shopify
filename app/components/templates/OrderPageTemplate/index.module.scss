@@ -1,10 +1,10 @@
 @import 'styles/app.scss';
 
 .orderContainer {
+  position: relative;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
 }
 
 .order {
@@ -15,6 +15,8 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
+  overflow: hidden;
+
   // max-width: 400px;
   @include phone {
     justify-content: space-around;
@@ -26,9 +28,9 @@
 }
 .orderWrapper {
   @include phone {
-    margin-top: 60px;
+    margin-top: 10px;
     display: grid;
-    grid-template-columns: 2fr 1.5fr;
+    grid-template-columns: 2fr 2fr;
   }
 
   @include sDesktop {
@@ -40,8 +42,25 @@
   align-self: flex-start;
   z-index: 10;
   justify-self: center;
-  padding: 0 30px;
+  margin-top: 35px;
+
+  @include tablet {
+    padding: 0 15px 0;
+    margin-top: 0;
+  }
 }
+.paymentButtons {
+  max-width: 350px;
+  margin: 30px 10px 0;
+  overflow-y: auto;
+  max-height: 300px;
+
+  @include phone {
+    max-height: unset;
+    height: 300px;
+  }
+}
+
 .orderProducts {
   max-width: 450px;
 }
@@ -51,7 +70,7 @@
   width: 100%;
 }
 .orderTitle {
-  font-size: clamp(24px, 3vw, 42px);
+  font-size: clamp(26px, 3vw, 44px);
   color: rgb(17, 17, 21);
   margin-bottom: 10px;
 
@@ -62,7 +81,7 @@
 .productList {
   margin: 0;
   padding: 0;
-  max-height: 175px;
+  max-height: 220px;
   overflow-y: scroll;
   @include phone {
     max-height: unset;
@@ -75,7 +94,7 @@
   padding-right: 30px;
   display: grid;
   grid-template-columns: 2.4fr 1fr 1fr;
-  margin-top: 18px;
+  margin-top: 20px;
 }
 
 .productCell {
@@ -96,17 +115,22 @@
 }
 
 .paymentTitle {
-  font-size: clamp(25px, 3vw, 44px);
+  font-size: clamp(26px, 3vw, 44px);
   color: rgb(17, 17, 21);
 }
 .shipping {
-  padding-bottom: 25px;
+  padding: 40px 0 45px;
+
+  @include phone {
+    padding: 0px 0 45px;
+
+  }
 }
 
 .shippingTitle {
-  font-size: clamp(22px, 2.4vw, 36px);
+  font-size: clamp(24px, 2.4vw, 38px);
   color: rgb(17, 17, 21);
-  margin-bottom: 18px;
+  margin-bottom: 22px;
 }
 
 .wrapper {
@@ -121,7 +145,7 @@
   width: 100%;
   display: grid;
   grid-template-columns: 1.5fr 1fr 2fr;
-  margin: 14px 0 2px;
+  margin: 22px 0 0;
 }
 
 .menu__item {

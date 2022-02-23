@@ -13,6 +13,9 @@ const productsReducer = (state = initialState.products, action) => {
       );
       return [...newProducts];
     }
+    case types.CLEAR_CART: {
+      return [];
+    }
     default:
       return state;
   }

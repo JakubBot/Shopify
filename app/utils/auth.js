@@ -15,4 +15,22 @@ const signToken = (user) => {
   );
 };
 
-export { signToken };
+const isAuth = (req, res, next) => {
+  const authorization = req.headers.authorization;
+  if (authorization) {
+    const token = authorization.slice(7, authorization.length);
+
+    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+      if (!err) {
+        req.user = decoded;
+        next();
+      } else {
+        res.send('Token is not valid');
+      }
+    });
+  } else {
+    res.send('Token is not found');
+  }
+};
+
+export { signToken, isAuth };
