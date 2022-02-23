@@ -4,6 +4,7 @@ import { BsCart2 } from 'react-icons/bs';
 import { connect } from 'react-redux';
 import Link from 'next/link';
 import * as productActions from '@redux/actions/productActions';
+import { totalPricesProducts } from '@util/helperFunctions';
 
 const FloatedCart = ({ products, deleteProduct }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,11 +14,8 @@ const FloatedCart = ({ products, deleteProduct }) => {
   };
 
   useEffect(() => {
-    let priceSum = products.reduce((acc, product) => {
-      const { price, quantity } = product;
-      return acc + price * quantity;
-    }, 0);
-    setProductsPrice(priceSum.toFixed(2));
+    let totalPrices = totalPricesProducts(products);
+    setProductsPrice(totalPrices);
   }, [products]);
 
   const deleteProducts = (product) => {
