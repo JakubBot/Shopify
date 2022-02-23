@@ -2,8 +2,11 @@ import Order from 'models/Order';
 import db from '@util/db';
 import nc from 'next-connect';
 import { isAuth } from '@util/auth';
+import { onError } from '@util/error';
 
-const handler = nc();
+const handler = nc({
+  onError,
+});
 
 handler.use(isAuth);
 handler.post(async (req) => {

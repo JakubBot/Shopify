@@ -11,6 +11,7 @@ import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 import axios from 'axios';
 import * as productActions from '@redux/actions/productActions';
 import { toast } from 'react-toastify';
+import { getError } from '@util/error';
 
 const OrderPageTemplate = ({ products, shippingAddress, user, clearCart }) => {
   const initialOptions = {
@@ -69,9 +70,8 @@ const OrderPageTemplate = ({ products, shippingAddress, user, clearCart }) => {
   //     alert(err);
   //   }
   // }
-
   function onApprove(data, actions) {
-    return actions.order.capture().then(async function (details) {
+    return actions.order.capture().then(async function () {
       try {
         axios.post(
           '/api/orders',
@@ -88,7 +88,7 @@ const OrderPageTemplate = ({ products, shippingAddress, user, clearCart }) => {
         });
         router.push('/');
       } catch (err) {
-        toast.error('Error occurred, try again', {
+        toast.error(getError(err), {
           theme: 'colored',
         });
         alert(err);
