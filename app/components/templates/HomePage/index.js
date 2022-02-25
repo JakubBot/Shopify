@@ -9,15 +9,14 @@ import { useEffect } from 'react';
 import { scrollToSection } from '@util/gsap';
 const HomePage = ({ newProducts }) => {
   const router = useRouter();
-
   useEffect(() => {
-    scrollToSection(router.query.scrollTo,true)
+    scrollToSection(router.query.scrollTo, true);
   }, [router]);
   const components = [
     <HomeWelcome key={uniqid()} isHome />,
     <OurProductsSlider key={uniqid()} newProducts={newProducts} />,
     <AboutUs key={uniqid()} />,
-    <Contact key={uniqid()} />,
+    <Contact key={uniqid()} hasForm={true} />,
   ];
 
   return (

@@ -6,7 +6,6 @@ import Footer from '@element/Footer';
 import styles from './index.module.scss';
 import axios from 'axios';
 import { useState } from 'react';
-
 const Contact = () => {
   const [activeButton, setActiveButton] = useState(true);
   const {
