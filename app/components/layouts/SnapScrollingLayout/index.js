@@ -9,13 +9,14 @@ const SnapScrollingLayout = ({
   title,
   description,
   components,
+  hasFocus = false,
 }) => {
   const containerRef = useRef(null);
   useEffect(() => {
-  SnapScrollingGsap(containerRef);
+    SnapScrollingGsap(containerRef,hasFocus);
 
-  return () => clearPageScrolling()
-  }, []);
+    return () => clearPageScrolling();
+  }, [hasFocus]);
   return (
     <>
       <Head>
@@ -29,7 +30,7 @@ const SnapScrollingLayout = ({
         ></meta>
       </Head>
       <div>
-        <FloatedCartIcon  />
+        <FloatedCartIcon />
 
         <div ref={containerRef} className={styles.homeContainer}>
           {components.map((component) => {

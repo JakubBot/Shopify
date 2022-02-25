@@ -6,13 +6,13 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const snapScrolling = (containerRef) => {
+const snapScrolling = (containerRef, hasFocus) => {
   let container = containerRef.current;
   let scrollDirection = 1;
 
   let sectionLength = container.children.length;
   const arr = new Array(sectionLength).fill(1);
-  let snapVals = arr.map((value,index) => index / (sectionLength - 1))
+  let snapVals = arr.map((value, index) => index / (sectionLength - 1));
   const snapParams = {
     snapTo: (v) => {
       const offset = 0.015;
@@ -48,6 +48,9 @@ const snapScrolling = (containerRef) => {
       pin: true,
       pinSpacing: false,
       onUpdate: (self) => {
+        console.log(hasFocus);
+        if (hasFocus) return;
+
         scrollDirection = self.direction;
       },
     },

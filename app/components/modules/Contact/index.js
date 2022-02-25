@@ -6,8 +6,8 @@ import Footer from '@element/Footer';
 import styles from './index.module.scss';
 import axios from 'axios';
 import { useState } from 'react';
-
-const Contact = () => {
+import { useEffect } from 'react';
+const Contact = ({ setHasFocus }) => {
   const [activeButton, setActiveButton] = useState(true);
   const {
     register,
@@ -49,6 +49,7 @@ const Contact = () => {
           <h4 className={styles.subTitle}>Write to us!</h4>
           <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
             <InputComponent
+              setHasFocus={setHasFocus}
               labelName="Name"
               label="name"
               errors={errors}
@@ -56,6 +57,7 @@ const Contact = () => {
               inputType="text"
             />
             <InputComponent
+              setHasFocus={setHasFocus}
               labelName="Email"
               label="email"
               errors={errors}
@@ -63,6 +65,7 @@ const Contact = () => {
               inputType="text"
             />
             <InputComponent
+              setHasFocus={setHasFocus}
               labelName="Message"
               label="message"
               errors={errors}

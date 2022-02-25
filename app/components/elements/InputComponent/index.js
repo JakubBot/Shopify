@@ -2,13 +2,12 @@ import { ErrorMessage } from '@hookform/error-message';
 import getType from './types';
 import styles from './index.module.scss';
 
-
 const InputComponent = ({
   errors,
   register,
   labelName,
   label,
-
+  setHasFocus,
   inputType,
 }) => {
   const errorMessage = (type) => {
@@ -48,6 +47,13 @@ const InputComponent = ({
     }
   };
 
+  const onFocus = () => {
+    setHasFocus(true);
+  };
+  const onBlur = () => {
+    setHasFocus(false);
+  };
+
   return (
     <>
       <div className={styles.inputContainer}>
@@ -55,6 +61,8 @@ const InputComponent = ({
           {labelName}:
         </label>
         <input
+          onFocus={onFocus}
+          onBlur={onBlur}
           className={styles.input}
           type={inputType}
           id={label}
