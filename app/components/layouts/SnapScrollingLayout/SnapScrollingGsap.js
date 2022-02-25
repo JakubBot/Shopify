@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const snapScrolling = (containerRef, hasFocus) => {
+const snapScrolling = (containerRef) => {
   let container = containerRef.current;
   let scrollDirection = 1;
 
@@ -49,9 +49,6 @@ const snapScrolling = (containerRef, hasFocus) => {
       pinSpacing: false,
 
       onUpdate: (self) => {
-        console.log(hasFocus);
-        if (hasFocus) return;
-
         scrollDirection = self.direction;
       },
     },

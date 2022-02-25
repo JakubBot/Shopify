@@ -77,7 +77,7 @@ const ProductPage = ({ product, addProduct }) => {
                 </span>
               </div>
               <div className={styles.productPr}>
-                <h4>$19.99</h4>
+                <h4>{product.price}$</h4>
               </div>
             </div>
             <button className={styles.addToCart} onClick={addProducts}>

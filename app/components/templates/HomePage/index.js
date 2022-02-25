@@ -7,7 +7,6 @@ import uniqid from 'uniqid';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { scrollToSection } from '@util/gsap';
-import { useState } from 'react';
 const HomePage = ({ newProducts }) => {
   const router = useRouter();
   useEffect(() => {
