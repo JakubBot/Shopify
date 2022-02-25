@@ -2,13 +2,7 @@ import { ErrorMessage } from '@hookform/error-message';
 import getType from './types';
 import styles from './index.module.scss';
 
-const InputComponent = ({
-  errors,
-  register,
-  labelName,
-  label,
-  inputType,
-}) => {
+const InputComponent = ({ errors, register, labelName, label, inputType }) => {
   const errorMessage = (type) => {
     return {
       minLength: {
@@ -45,8 +39,6 @@ const InputComponent = ({
       };
     }
   };
-
-
 
   return (
     <>
