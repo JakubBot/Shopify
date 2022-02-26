@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
 import { createWrapper } from 'next-redux-wrapper';
-import { composeWithDevTools } from '@redux-devtools/extension/src/developmentOnly';
+import { composeWithDevToolsDevelopmentOnly } from '@redux-devtools/extension';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import rootReducer from './reducers';
@@ -13,7 +13,7 @@ const persistConfig = {
 const makeStore = () => {
   let store = createStore(
     persistedReducer,
-    composeWithDevTools()
+    composeWithDevToolsDevelopmentOnly()
   );
 
   store.__persistor = persistStore(store);
