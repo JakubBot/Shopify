@@ -9,12 +9,18 @@ const handler = nc();
 handler.post(async (req, res) => {
   const { name, email, password } = req.body;
   await db.connect();
+
   const newUser = await new User({
     name,
     email,
     password: bcrypt.hashSync(password),
   });
-  await newUser.save();
+  try {
+    await newUser.save();
+  } catch (e) {
+    res.status(401).send({ message: 'Email address already exists' });
+  }
+
   await db.disconnect();
 
   const token = signToken(newUser);

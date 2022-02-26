@@ -6,5 +6,3 @@ export function totalPricesProducts(products) {
 
   return totalPrices.toFixed(2);
 }
-
-// MONGODB_URI=mongodb://localhost/Shopify

@@ -49,3 +49,25 @@
   }
 }
 
+.formFooter {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  align-items: center;
+}
+
+.account {
+  font-weight: 400;
+
+  // margin-right: 60px;
+}
+.registerLink {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+
+  @include phone {
+    display: initial;
+    margin: 0 25px 0 10px;
+  }
+}

@@ -60,11 +60,11 @@ const FloatedCart = ({ products, deleteProduct }) => {
             <li className={`${styles.listSumContainer}`}>
               <span className={styles.listSum}>Sum</span>
               <span className={`${styles.listPrice}`}>{productsPrice}$</span>
-              <span className={`${styles.buyBtn}`}>
-                <Link href="/order">
-                  <a>Buy</a>
-                </Link>
-              </span>
+              <Link href="/order">
+                <a>
+                  <span className={`${styles.buyBtn}`}>Buy</span>
+                </a>
+              </Link>
             </li>
           </ul>
         )}

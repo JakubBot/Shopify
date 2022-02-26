@@ -39,7 +39,6 @@ const InputComponent = ({ errors, register, labelName, label, inputType }) => {
       };
     }
   };
-
   return (
     <>
       <div className={styles.inputContainer}>
@@ -47,6 +46,7 @@ const InputComponent = ({ errors, register, labelName, label, inputType }) => {
           {labelName}:
         </label>
         <input
+          autoComplete={inputType === 'password' ? 'current-password' : 'off'}
           className={styles.input}
           type={inputType}
           id={label}
