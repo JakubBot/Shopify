@@ -1,10 +1,9 @@
-import { createStore } from 'redux';
+import { createStore, compose } from 'redux';
 import { createWrapper } from 'next-redux-wrapper';
 import { composeWithDevTools } from '@redux-devtools/extension';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import rootReducer from './reducers';
-// import initialState from './reducers/initialState';
 
 const persistConfig = {
   key: 'root',
@@ -12,10 +11,9 @@ const persistConfig = {
 };
 
 const makeStore = () => {
-  let store = createStore(
-    persistedReducer,
-    composeWithDevTools()
-  );
+  const composeEnhancers =
+    process.env.NODE_ENV === 'development' ? composeWithDevTools : compose;
+  let store = createStore(persistedReducer, composeEnhancers());
 
   store.__persistor = persistStore(store);
 

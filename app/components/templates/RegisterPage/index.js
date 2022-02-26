@@ -7,8 +7,9 @@ import axios from 'axios';
 import IcosahedronLayout from '@layout/IcosahedronLayout';
 import { connect } from 'react-redux';
 import * as userActions from '@redux/actions/userActions';
+import { getError } from '@util/error';
 
-const RegisterPage = ({saveUser}) => {
+const RegisterPage = ({ saveUser }) => {
   const router = useRouter();
   const { redirect } = router.query;
   const {
@@ -38,7 +39,7 @@ const RegisterPage = ({saveUser}) => {
     }
     try {
       const { data } = await axios.post('/api/users/register', state);
-      saveUser(data)
+      saveUser(data);
       reset({
         name: '',
         email: '',
@@ -47,11 +48,7 @@ const RegisterPage = ({saveUser}) => {
       });
       router.push(redirect || '/');
     } catch (err) {
-      alert(
-        err.response && err.response.data && err.response.data.message
-          ? err.response.data.message
-          : err.message
-      );
+      alert(getError(err));
     }
   };
 
@@ -110,11 +107,8 @@ const RegisterPage = ({saveUser}) => {
   );
 };
 
-
-
 const mapDispatchToProps = {
   saveUser: userActions.saveUser,
 };
-
 
 export default connect(null, mapDispatchToProps)(RegisterPage);

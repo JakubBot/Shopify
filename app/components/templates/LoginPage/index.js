@@ -7,7 +7,8 @@ import axios from 'axios';
 import IcosahedronLayout from '@layout/IcosahedronLayout';
 import { connect } from 'react-redux';
 import * as userActions from '@redux/actions/userActions';
-
+import Link from 'next/link';
+import { getError } from '@util/error';
 const LoginPage = ({ saveUser }) => {
   const router = useRouter();
   const { redirect } = router.query;
@@ -33,11 +34,7 @@ const LoginPage = ({ saveUser }) => {
       });
       router.push(redirect || '/');
     } catch (err) {
-      alert(
-        err.response && err.response.data && err.response.data.message
-          ? err.response.data.message
-          : err.message
-      );
+      alert(getError(err));
     }
   };
 
@@ -74,9 +71,25 @@ const LoginPage = ({ saveUser }) => {
               ))
             }
           />
-          <button className={styles.button} type="submit">
-            Login
-          </button>
+          <div className={styles.formFooter}>
+            <button className={styles.button} type="submit">
+              Login
+            </button>
+            <div>
+              <h5 className={styles.account}>
+                Do not have account?
+                <Link
+                  href={
+                    redirect ? `/register?redirect=${redirect}` : '/register'
+                  }
+                >
+                  <a>
+                    <span className={styles.registerLink}>Register here</span>
+                  </a>
+                </Link>
+              </h5>
+            </div>
+          </div>
         </form>
       </div>
     </IcosahedronLayout>
@@ -94,4 +107,3 @@ const mapDispatchToProps = {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
-
