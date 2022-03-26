@@ -6,8 +6,7 @@ import styles from './index.module.scss';
 
 const SocialIcons = ({ lDesktop }) => {
   return (
-    <>
-      <div className={`${styles.socialIcons} ${lDesktop ? styles.lDesktop : ''}`}>
+      <div data-testid="socialIcon" className={`${styles.socialIcons} ${lDesktop ? styles.lDesktop : ''}`}>
         <Link href="/cos">
           <a>
             <FaFacebook />
@@ -24,7 +23,6 @@ const SocialIcons = ({ lDesktop }) => {
           </a>
         </Link>
       </div>
-    </>
   );
 };
 

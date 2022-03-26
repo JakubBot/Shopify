@@ -7,7 +7,6 @@
       "@module/*": ["components/modules/*"],
       "@template/*": ["components/templates/*"],
       "@util/*": ["utils/*"],
-      "@api/*": ["api/*"],
       "@redux/*": ["redux/*"],
     },
   },

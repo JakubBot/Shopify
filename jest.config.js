@@ -17,13 +17,12 @@ module.exports = {
     '^.+\\.(jpg|jpeg|png|gif|webp|avif|svg)$':
       '<rootDir>/__mocks__/fileMock.js',
 
-    '^@element/(.*)$': '<rootDir>/elements/$1',
-    '^@layout/(.*)$': '<rootDir>/layouts/$1',
-    '^@module/(.*)$': '<rootDir>/modules/$1',
-    '^@util/(.*)': '<rootDir>/app/utils/$1',
-    '^@template/(.*)$': '<rootDir>/templates/$1',
-    '^@api/(.*)$': '<rootDir>/api/$1',
-    '^@redux/(.*)$': '<rootDir>/redux/$1',
+    '^@element/(.*)$': '<rootDir>/app/components/elements/$1',
+    '^@layout/(.*)$': '<rootDir>/app/components/layouts/$1',
+    '^@module/(.*)$': '<rootDir>/app/components/modules/$1',
+    '^@template/(.*)$': '<rootDir>/app/components/templates/$1',
+    '^@util/(.*)$': '<rootDir>/app/utils/$1',
+    '^@redux/(.*)$': '<rootDir>/app/redux/$1',
   },
   testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
   testEnvironment: 'jsdom',
@@ -37,4 +36,5 @@ module.exports = {
     '^.+\\.module\\.(css|sass|scss)$',
   ],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  moduleDirectories: ["node_modules", 'src','app'],
 };
