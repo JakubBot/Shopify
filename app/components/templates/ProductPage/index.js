@@ -68,7 +68,7 @@ const ProductPage = ({ product, addProduct }) => {
                 >
                   -
                 </span>
-                <button className={styles.counter}>{quantity}</button>
+                <button aria-label="change quantity" className={styles.counter}>{quantity}</button>
                 <span
                   className={styles.buttonDecrement}
                   onClick={increaseQuantity}

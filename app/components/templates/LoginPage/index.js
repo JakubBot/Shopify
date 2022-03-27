@@ -9,10 +9,10 @@ import { connect } from 'react-redux';
 import * as userActions from '@redux/actions/userActions';
 import Link from 'next/link';
 import { getError } from '@util/error';
+import { toast } from 'react-toastify';
 const LoginPage = ({ saveUser }) => {
   const router = useRouter();
   const redirect = router?.query.redirect ?? undefined;
-  console.log(redirect);
   const {
     register,
     handleSubmit,
@@ -35,7 +35,12 @@ const LoginPage = ({ saveUser }) => {
       });
       router.push(redirect || '/');
     } catch (err) {
-      alert(getError(err));
+      toast.error(getError(err), {
+        theme: 'colored',
+      });
+      reset({
+        password: '',
+      });
     }
   };
 
@@ -44,7 +49,7 @@ const LoginPage = ({ saveUser }) => {
       <div className={styles.loginForm}>
         <h2 className={styles.title}>Login Form</h2>
 
-        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+        <form  className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <InputComponent
             labelName="Email"
             label="email"
