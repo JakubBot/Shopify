@@ -24,6 +24,7 @@ const getType = (label) => {
         max: 16,
       };
     case 'password':
+    case 'confirmedPassword':
       return {
         isPassword: true,
         min: 5,

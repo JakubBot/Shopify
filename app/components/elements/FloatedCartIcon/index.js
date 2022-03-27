@@ -25,7 +25,9 @@ const FloatedCart = ({ products, deleteProduct }) => {
   return (
     <>
       <div
-        className={`${styles.action} ${isOpen ? styles.active : ''}`}
+        className={`${styles.action} ${isOpen ? styles.active : ''} ${
+          window.innerWidth < 650 && styles.phone
+        }`}
         onClick={changeActive}
       >
         <span className={styles.icon}>

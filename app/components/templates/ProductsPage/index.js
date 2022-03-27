@@ -8,9 +8,7 @@ const ProductsPage = ({ products }) => {
     return <Products key={uniqid()} product={{ ...product, index }} />;
   });
 
-  return (
-    <SnapScrollingLayout  components={components} />
-  );
+  return <SnapScrollingLayout components={components} />;
 };
 
 export default ProductsPage;

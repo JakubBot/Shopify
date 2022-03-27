@@ -10,7 +10,10 @@
   cursor: pointer;
   z-index: 1;
 }
-
+.phone {
+  left: unset;
+  right: 50px;
+}
 .icon {
   position: relative;
   width: 100%;

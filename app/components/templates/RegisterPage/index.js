@@ -8,6 +8,8 @@ import IcosahedronLayout from '@layout/IcosahedronLayout';
 import { connect } from 'react-redux';
 import * as userActions from '@redux/actions/userActions';
 import { getError } from '@util/error';
+import { toast } from 'react-toastify';
+
 
 const RegisterPage = ({ saveUser }) => {
   const router = useRouter();
@@ -48,7 +50,9 @@ const RegisterPage = ({ saveUser }) => {
       });
       router.push(redirect || '/');
     } catch (err) {
-      alert(getError(err));
+      toast.error(getError(err), {
+        theme: 'colored',
+      });
     }
   };
 

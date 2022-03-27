@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import * as productActions from '@redux/actions/productActions';
 import { useRouter } from 'next/router';
 import uniqid from 'uniqid';
+import Link from 'next/link'
 
 const ProductPage = ({ product, addProduct }) => {
   const [quantity, setQuantity] = useState(1);
@@ -47,18 +48,21 @@ const ProductPage = ({ product, addProduct }) => {
               alt="product img"
               src={product.image}
             />
+            <h3 className={styles.productLink}>
+              <Link href="/">
+                <a>Back to home</a>
+              </Link>
+            </h3>
           </div>
           <div className={styles.description}>
             <div className={styles.title}>
-              <h3>Coconut Water</h3>
+              <h3>{product.name}</h3>
             </div>
             <div className={styles.subTitle}>
-              <p>sssssssssssssssssssssssssss</p>
-              <p>sssssssssssssssssss</p>
+              <p>Lorem ipsum ame,</p>
+              <p>consectetur elit</p>
             </div>
-            <div className={styles.free}>
-              <p>Glutamin free</p>
-            </div>
+         
 
             <div className={styles.productButtonContainer}>
               <div className={styles.productButtonDetails}>
@@ -68,7 +72,9 @@ const ProductPage = ({ product, addProduct }) => {
                 >
                   -
                 </span>
-                <button aria-label="change quantity" className={styles.counter}>{quantity}</button>
+                <button aria-label="change quantity" className={styles.counter}>
+                  {quantity}
+                </button>
                 <span
                   className={styles.buttonDecrement}
                   onClick={increaseQuantity}
