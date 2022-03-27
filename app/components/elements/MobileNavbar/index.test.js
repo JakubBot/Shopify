@@ -1,8 +1,8 @@
-import { screen, render, getAllByRole } from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import MobileNavbar from './index';
 
-it("sa", () => {
+it("check if onClick function fires", () => {
   let fn = jest.fn()
   render(<MobileNavbar onClick={fn} />)
   let item = screen.getAllByRole("listitem")
