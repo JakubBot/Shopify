@@ -11,7 +11,8 @@ import Link from 'next/link';
 import { getError } from '@util/error';
 const LoginPage = ({ saveUser }) => {
   const router = useRouter();
-  const { redirect } = router.query;
+  const redirect = router?.query.redirect ?? undefined;
+  console.log(redirect);
   const {
     register,
     handleSubmit,
