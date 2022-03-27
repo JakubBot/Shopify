@@ -22,9 +22,9 @@ const OrderPageTemplate = ({ products, shippingAddress, user, clearCart }) => {
   const router = useRouter();
   const [productsPrice, setProductsPrice] = useState(0);
   useEffect(() => {
-    if (!user.token) router.push('/login?redirect=/order');
+    if (!user.token) router?.push('/login?redirect=/order');
     if (Object.values(shippingAddress).some((adress) => adress === ''))
-      router.push('/shippingAddress');
+      router?.push('/shippingAddress');
   }, [shippingAddress, router, user]);
 
   useEffect(() => {
@@ -91,7 +91,6 @@ const OrderPageTemplate = ({ products, shippingAddress, user, clearCart }) => {
         toast.error(getError(err), {
           theme: 'colored',
         });
-        alert(err);
       }
     });
   }
@@ -119,19 +118,21 @@ const OrderPageTemplate = ({ products, shippingAddress, user, clearCart }) => {
                   Quantity
                 </span>
               </li>
-              {products.map(({ name, price, quantity, id }) => {
-                return (
-                  <li key={id} className={styles.product}>
-                    <span className={styles.productCell}>{name}</span>
-                    <span className={styles.productCell}>{price}$</span>
-                    <span
-                      className={`${styles.productCell} ${styles.alignCenter}`}
-                    >
-                      {quantity}
-                    </span>
-                  </li>
-                );
-              })}
+              <ol aria-label="products" className={styles.productList}>
+                {products.map(({ name, price, quantity, id }) => {
+                  return (
+                    <li key={id} className={styles.product}>
+                      <span className={styles.productCell}>{name}</span>
+                      <span className={styles.productCell}>{price}$</span>
+                      <span
+                        className={`${styles.productCell} ${styles.alignCenter}`}
+                      >
+                        {quantity}
+                      </span>
+                    </li>
+                  );
+                })}
+              </ol>
             </ul>
             <div className={styles.sum}>
               <span className={styles.sumCell}>Sum</span>
@@ -174,7 +175,6 @@ const OrderPageTemplate = ({ products, shippingAddress, user, clearCart }) => {
           ))}
         </div>
         <div className={styles.menu__item}>
-          {/* <a className={styles.menu__item__link}>Asterisks</a> */}
           <div className={styles.marquee}>
             <div className={styles.marquee__inner} aria-hidden="true">
               <span>Discounts</span>

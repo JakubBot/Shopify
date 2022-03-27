@@ -1,0 +1,637 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render a product 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="orderContainer"
+      >
+        <header
+          class="header"
+        >
+          <a
+            href="/"
+          >
+            <h2
+              class="title"
+            >
+              Shop
+              <span
+                class="emptySpan"
+              >
+                ify
+              </span>
+            </h2>
+          </a>
+          <nav
+            class="nav"
+          >
+            <ul
+              class="list"
+            >
+              <li
+                class="listItem"
+                data-scroll="slider"
+              >
+                Our products
+              </li>
+              <li
+                class="listItem"
+                data-scroll="about"
+              >
+                About us
+              </li>
+              <li
+                class="listItem"
+                data-scroll="contact"
+              >
+                Contact
+              </li>
+              <li
+                class="listItem"
+              >
+                <a
+                  href="/login"
+                >
+                   Login
+                </a>
+              </li>
+            </ul>
+            <div
+              class="circle"
+            />
+          </nav>
+        </header>
+        <div
+          class="order"
+        >
+          <div
+            class="orderWrapper"
+          >
+            <div
+              class="orderProducts"
+            >
+              <h3
+                class="orderTitle"
+              >
+                Your Products
+              </h3>
+              <ul
+                class="productList"
+              >
+                <li
+                  class="product"
+                >
+                  <span
+                    class="productCell productName"
+                  >
+                    Name
+                  </span>
+                  <span
+                    class="productCell productPrice"
+                  >
+                    Price
+                  </span>
+                  <span
+                    class="productCell productQuantity"
+                  >
+                    Quantity
+                  </span>
+                </li>
+                <ol
+                  aria-label="products"
+                  class="productList"
+                >
+                  <li
+                    class="product"
+                  >
+                    <span
+                      class="productCell"
+                    >
+                      Buckle Bunny
+                    </span>
+                    <span
+                      class="productCell"
+                    >
+                      4.99
+                      $
+                    </span>
+                    <span
+                      class="productCell alignCenter"
+                    >
+                      1
+                    </span>
+                  </li>
+                </ol>
+              </ul>
+              <div
+                class="sum"
+              >
+                <span
+                  class="sumCell"
+                >
+                  Sum
+                </span>
+                <span
+                  class="sumCell"
+                >
+                  4.99
+                  $
+                </span>
+              </div>
+            </div>
+            <div
+              class="payment"
+            >
+              <div>
+                <h3
+                  class="paymentTitle"
+                >
+                  Payment
+                </h3>
+              </div>
+              <div
+                class="paymentButtons"
+              >
+                <div
+                  class=""
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="shipping"
+          >
+            <div>
+              <h3
+                class="shippingTitle"
+              >
+                Shopping address
+              </h3>
+            </div>
+            <div
+              class="wrapper"
+            >
+              <span>
+                Full Name
+                :
+              </span>
+              <span />
+            </div>
+            <div
+              class="wrapper"
+            >
+              <span>
+                Address
+                :
+              </span>
+              <span />
+            </div>
+            <div
+              class="wrapper"
+            >
+              <span>
+                City
+                :
+              </span>
+              <span />
+            </div>
+            <div
+              class="wrapper"
+            >
+              <span>
+                Postal Code
+                :
+              </span>
+              <span />
+            </div>
+          </div>
+          <div
+            class="menu__item"
+          >
+            <div
+              class="marquee"
+            >
+              <div
+                aria-hidden="true"
+                class="marquee__inner"
+              >
+                <span>
+                  Discounts
+                </span>
+                <span>
+                  Discounts
+                </span>
+                <span>
+                  Discounts
+                </span>
+                <span>
+                  Discounts
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="footer"
+        >
+          <div
+            class="footerLinks"
+          >
+            <h3
+              class="footerLink"
+            >
+              <a
+                href="/"
+              >
+                Promotions
+              </a>
+            </h3>
+            <h3
+              class="footerLink"
+            >
+              <a
+                href="/"
+              >
+                Employees
+              </a>
+            </h3>
+            <h3
+              class="footerLink"
+            >
+              <a
+                href="/"
+              >
+                Terms
+              </a>
+            </h3>
+          </div>
+          <div
+            class="footerPhone"
+          >
+            <svg
+              class="phone"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 16 16"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"
+                fill-rule="evenodd"
+              />
+            </svg>
+            <h3>
+              772567123
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="orderContainer"
+    >
+      <header
+        class="header"
+      >
+        <a
+          href="/"
+        >
+          <h2
+            class="title"
+          >
+            Shop
+            <span
+              class="emptySpan"
+            >
+              ify
+            </span>
+          </h2>
+        </a>
+        <nav
+          class="nav"
+        >
+          <ul
+            class="list"
+          >
+            <li
+              class="listItem"
+              data-scroll="slider"
+            >
+              Our products
+            </li>
+            <li
+              class="listItem"
+              data-scroll="about"
+            >
+              About us
+            </li>
+            <li
+              class="listItem"
+              data-scroll="contact"
+            >
+              Contact
+            </li>
+            <li
+              class="listItem"
+            >
+              <a
+                href="/login"
+              >
+                 Login
+              </a>
+            </li>
+          </ul>
+          <div
+            class="circle"
+          />
+        </nav>
+      </header>
+      <div
+        class="order"
+      >
+        <div
+          class="orderWrapper"
+        >
+          <div
+            class="orderProducts"
+          >
+            <h3
+              class="orderTitle"
+            >
+              Your Products
+            </h3>
+            <ul
+              class="productList"
+            >
+              <li
+                class="product"
+              >
+                <span
+                  class="productCell productName"
+                >
+                  Name
+                </span>
+                <span
+                  class="productCell productPrice"
+                >
+                  Price
+                </span>
+                <span
+                  class="productCell productQuantity"
+                >
+                  Quantity
+                </span>
+              </li>
+              <ol
+                aria-label="products"
+                class="productList"
+              >
+                <li
+                  class="product"
+                >
+                  <span
+                    class="productCell"
+                  >
+                    Buckle Bunny
+                  </span>
+                  <span
+                    class="productCell"
+                  >
+                    4.99
+                    $
+                  </span>
+                  <span
+                    class="productCell alignCenter"
+                  >
+                    1
+                  </span>
+                </li>
+              </ol>
+            </ul>
+            <div
+              class="sum"
+            >
+              <span
+                class="sumCell"
+              >
+                Sum
+              </span>
+              <span
+                class="sumCell"
+              >
+                4.99
+                $
+              </span>
+            </div>
+          </div>
+          <div
+            class="payment"
+          >
+            <div>
+              <h3
+                class="paymentTitle"
+              >
+                Payment
+              </h3>
+            </div>
+            <div
+              class="paymentButtons"
+            >
+              <div
+                class=""
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="shipping"
+        >
+          <div>
+            <h3
+              class="shippingTitle"
+            >
+              Shopping address
+            </h3>
+          </div>
+          <div
+            class="wrapper"
+          >
+            <span>
+              Full Name
+              :
+            </span>
+            <span />
+          </div>
+          <div
+            class="wrapper"
+          >
+            <span>
+              Address
+              :
+            </span>
+            <span />
+          </div>
+          <div
+            class="wrapper"
+          >
+            <span>
+              City
+              :
+            </span>
+            <span />
+          </div>
+          <div
+            class="wrapper"
+          >
+            <span>
+              Postal Code
+              :
+            </span>
+            <span />
+          </div>
+        </div>
+        <div
+          class="menu__item"
+        >
+          <div
+            class="marquee"
+          >
+            <div
+              aria-hidden="true"
+              class="marquee__inner"
+            >
+              <span>
+                Discounts
+              </span>
+              <span>
+                Discounts
+              </span>
+              <span>
+                Discounts
+              </span>
+              <span>
+                Discounts
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="footer"
+      >
+        <div
+          class="footerLinks"
+        >
+          <h3
+            class="footerLink"
+          >
+            <a
+              href="/"
+            >
+              Promotions
+            </a>
+          </h3>
+          <h3
+            class="footerLink"
+          >
+            <a
+              href="/"
+            >
+              Employees
+            </a>
+          </h3>
+          <h3
+            class="footerLink"
+          >
+            <a
+              href="/"
+            >
+              Terms
+            </a>
+          </h3>
+        </div>
+        <div
+          class="footerPhone"
+        >
+          <svg
+            class="phone"
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 16 16"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"
+              fill-rule="evenodd"
+            />
+          </svg>
+          <h3>
+            772567123
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
