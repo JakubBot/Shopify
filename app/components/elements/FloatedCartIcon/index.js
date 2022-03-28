@@ -36,7 +36,11 @@ const FloatedCart = ({ products, deleteProduct }) => {
         </span>
 
         {products.length !== 0 && (
-          <ul className={styles.list}>
+          <ul
+            className={`${styles.list}  ${
+              window.innerWidth < 650 && styles.phone
+            }`}
+          >
             <li className={styles.listItemHeader}>
               <span className={styles.listTitle}>Item</span>
               <span className={`${styles.listTitle}`}>Quantity</span>

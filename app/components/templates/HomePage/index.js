@@ -16,8 +16,8 @@ const HomePage = ({ newProducts }) => {
     <HomeWelcome key={uniqid()} isHome />,
     <OurProductsSlider key={uniqid()} newProducts={newProducts} />,
     <AboutUs key={uniqid()} />,
-    <Contact key={uniqid()} />,
   ];
+    // <Contact key={uniqid()} />,
 
   return (
     <>

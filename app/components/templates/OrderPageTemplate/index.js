@@ -146,6 +146,7 @@ const OrderPageTemplate = ({ products, shippingAddress, user, clearCart }) => {
             <PayPalScriptProvider options={initialOptions}>
               <div className={styles.paymentButtons}>
                 <PayPalButtons
+                
                   createOrder={(data, actions) => {
                     return actions.order.create({
                       purchase_units: [

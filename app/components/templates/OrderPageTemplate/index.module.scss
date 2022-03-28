@@ -120,11 +120,13 @@
 }
 .shipping {
   padding: 40px 0 45px;
-
   @include phone {
     padding: 0px 0 45px;
-
   }
+}
+.paymentButtons > div   {
+  z-index: 1 !important;
+  position: relative;
 }
 
 .shippingTitle {

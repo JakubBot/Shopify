@@ -1,6 +1,3 @@
-// import { gsap } from 'gsap';
-
-// import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
@@ -12,7 +9,8 @@ const snapScrolling = (containerRef) => {
 
   let sectionLength = container.children.length;
   const arr = new Array(sectionLength).fill(1);
-  let snapVals = arr.map((value, index) => index / (sectionLength - 1));
+  // let snapVals = arr.map((value, index) => index / (sectionLength - 1));
+  let snapVals = [0, 1 / 3, 2 / 3];
   const snapParams = {
     snapTo: (v) => {
       const offset = 0.015;

@@ -46,6 +46,9 @@
   visibility: hidden;
   transition: 0.3s;
 }
+.phone .list {
+  right: -25px;
+}
 
 .active .list {
   bottom: 60px;

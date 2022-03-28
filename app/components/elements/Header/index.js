@@ -18,7 +18,7 @@ const Header = ({ isHome }) => {
   const navbarRef = useRef();
   const listRef = useRef();
 
-  const changeBurger = (e) => {
+  const scrollTo = (e) => {
     if (!isActive) {
       timeline.play();
     } else {
@@ -27,6 +27,15 @@ const Header = ({ isHome }) => {
         if (!isHome) router.push('/');
         else scrollToSection(dataScroll, isHome);
       });
+    }
+    setIsActive(!isActive);
+    burgerRef.current.classList.toggle('active');
+  };
+  const changeBurger = () => {
+    if (!isActive) {
+      timeline.play();
+    } else {
+      timeline.reverse();
     }
     setIsActive(!isActive);
     burgerRef.current.classList.toggle('active');
@@ -69,7 +78,7 @@ const Header = ({ isHome }) => {
             <div className={styles.burgerLine}></div>
           </div>
           <MobileNavbar
-            onClick={changeBurger}
+            onClick={scrollTo}
             navbarRef={navbarRef}
             listRef={listRef}
           />
