@@ -6,6 +6,8 @@ import Footer from '@element/Footer';
 import styles from './index.module.scss';
 import axios from 'axios';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
+import { getError } from '@util/error';
 const Contact = () => {
   const [activeButton, setActiveButton] = useState(true);
   const {
@@ -16,7 +18,7 @@ const Contact = () => {
   } = useForm({
     criteriaMode: 'all',
     defaultValues: {
-      userName: '',
+      name: '',
       email: '',
       message: '',
     },
@@ -26,16 +28,14 @@ const Contact = () => {
       axios.post('/api/ideas', state);
       setActiveButton(false);
       reset({
-        userName: '',
+        name: '',
         email: '',
         message: '',
       });
     } catch (err) {
-      alert(
-        err.response && err.response.data && err.response.data.message
-          ? err.response.data.message
-          : err.message
-      );
+      toast.error(getError(err), {
+        theme: 'colored',
+      });
     }
   };
 

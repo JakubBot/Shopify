@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const ideaSchema = new mongoose.Schema({
-  userName: { type: String, required: true },
+  name: { type: String, required: true },
   email: { type: String, required: true },
   message: { type: String, required: true },
 });
