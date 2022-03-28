@@ -1,11 +1,6 @@
 import initialState from './initialState';
 import types from '../actions/actionTypes';
 const userReducer = (state = initialState.user, action) => {
-  let user = {
-    name: '',
-    email: '',
-    token: '',
-  };
   switch (action.type) {
     case types.SAVE_USER: {
       return { ...state, ...action.payload };

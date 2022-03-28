@@ -50,26 +50,7 @@ const OrderPageTemplate = ({ products, shippingAddress, user, clearCart }) => {
       title: 'Postal Code',
     },
   };
-  // function saveOrder() {
-  //   try {
-  //     axios.post(
-  //       '/api/orders',
-  //       { products, shippingAddress },
-  //       {
-  //         headers: {
-  //           authorization: `Bearer ${user.token}`,
-  //         },
-  //       }
-  //     );
-  //     clearCart();
-  //     toast.success('Order was saved', {
-  //       theme: 'colored',
-  //     });
-  //     router.push('/');
-  //   } catch (err) {
-  //     alert(err);
-  //   }
-  // }
+
   function onApprove(data, actions) {
     return actions.order.capture().then(async function () {
       try {
@@ -146,7 +127,6 @@ const OrderPageTemplate = ({ products, shippingAddress, user, clearCart }) => {
             <PayPalScriptProvider options={initialOptions}>
               <div className={styles.paymentButtons}>
                 <PayPalButtons
-                
                   createOrder={(data, actions) => {
                     return actions.order.create({
                       purchase_units: [

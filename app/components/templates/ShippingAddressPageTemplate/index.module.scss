@@ -3,7 +3,6 @@
 .loginForm {
   justify-self: center;
   align-self: center;
-  // padding: 10px 20px;
   width: 100%;
   max-width: 600px;
   @include desktop {
@@ -47,4 +46,3 @@
     font-size: clamp(16px, 2vw, 20px);
   }
 }
-

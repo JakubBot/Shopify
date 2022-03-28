@@ -3,7 +3,6 @@ import FloatedCartIcon from '@element/FloatedCartIcon';
 import styles from './index.module.scss';
 import React, { useEffect, useRef } from 'react';
 import SnapScrollingGsap, { clearPageScrolling } from './SnapScrollingGsap';
-import Contact from '@module/Contact';
 
 const SnapScrollingLayout = ({ title, description, components }) => {
   const containerRef = useRef(null);
@@ -35,9 +34,6 @@ const SnapScrollingLayout = ({ title, description, components }) => {
               </section>
             );
           })}
-          <section className={styles.section}>
-            <Contact />
-          </section>
         </div>
       </div>
     </>

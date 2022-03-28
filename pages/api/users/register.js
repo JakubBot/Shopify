@@ -24,7 +24,7 @@ handler.post(async (req, res) => {
   await db.disconnect();
 
   const token = signToken(newUser);
-  // zwaracnie user z json token
+  // return user with json token
   res.send({
     token,
     name,
