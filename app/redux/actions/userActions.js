@@ -6,3 +6,9 @@ export function saveUser(user) {
     payload: user,
   };
 }
+
+export function logOut() {
+  return {
+    type: types.LOG_OUT_USER
+  }
+}

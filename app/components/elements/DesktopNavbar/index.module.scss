@@ -37,7 +37,7 @@
   background-color: rgb(30, 30, 35);
   bottom: -150px;
   right: -550px;
-  
+
   @include rwd(800) {
     bottom: -130px;
     right: -450px;
@@ -52,4 +52,13 @@
     bottom: -170px;
     right: -560px;
   }
+}
+
+.userButton {
+  background-color: transparent;
+  color: inherit;
+  font-weight: inherit;
+  border: none;
+  font-size: inherit;
+  cursor: pointer;
 }

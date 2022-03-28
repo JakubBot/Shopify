@@ -2,7 +2,6 @@
 
 .homeContainer {
   background-color: #f0f0f0;
-
 }
 
 .wavyImageContainter {
@@ -92,6 +91,8 @@
 .section {
   height: 100vh;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .socialIcons {
@@ -100,8 +101,8 @@
   top: 55%;
   flex-direction: column;
   gap: 24px;
-  font-size: clamp(32px,3vw,36px);
-  color: rgb(19,19,24);
+  font-size: clamp(32px, 3vw, 36px);
+  color: rgb(19, 19, 24);
   display: none;
   margin: 0 20px;
   cursor: pointer;

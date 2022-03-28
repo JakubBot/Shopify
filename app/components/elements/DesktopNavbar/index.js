@@ -4,9 +4,11 @@ import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin';
 import { scrollToSection } from '@util/gsap';
 import { useRouter } from 'next/router';
+import { connect } from 'react-redux';
+import * as userActions from '@redux/actions/userActions';
 gsap.registerPlugin(ScrollToPlugin);
 
-const DesktopNavbar = ({ isHome }) => {
+const DesktopNavbar = ({ isHome, user, logOut }) => {
   const router = useRouter();
   const scrollTo = (e) => {
     let dataScroll = e.target.getAttribute('data-scroll');
@@ -15,6 +17,10 @@ const DesktopNavbar = ({ isHome }) => {
     } else {
       router.push(`/?scrollTo=${dataScroll}`);
     }
+  };
+
+  const logOutUser = () => {
+    logOut();
   };
 
   return (
@@ -34,9 +40,13 @@ const DesktopNavbar = ({ isHome }) => {
           Contact
         </li>
         <li className={styles.listItem}>
-          <Link href="/login">
-            <a> Login</a>
-          </Link>
+          {user.name ? (
+            <button className={styles.userButton} onClick={logOutUser}>Log out</button>
+          ) : (
+            <Link href="/login">
+              <a>Login</a>
+            </Link>
+          )}
         </li>
       </ul>
       <div className={styles.circle}></div>
@@ -44,4 +54,13 @@ const DesktopNavbar = ({ isHome }) => {
   );
 };
 
-export default DesktopNavbar;
+const mapStateToProps = ({ user }) => {
+  return {
+    user,
+  };
+};
+const mapDispatchToProps = {
+  logOut: userActions.logOut,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DesktopNavbar);
