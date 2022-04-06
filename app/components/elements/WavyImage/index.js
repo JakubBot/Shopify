@@ -56,13 +56,11 @@ const Wave = () => {
 
 const WavyImage = () => {
   return (
-    <>
       <Canvas camera={{ position: [0, 0, 5], fov: 15 }}>
         <Suspense fallback={null}>
           <Wave />
         </Suspense>
       </Canvas>
-    </>
   );
 };
 

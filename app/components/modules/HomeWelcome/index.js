@@ -20,11 +20,13 @@ const HomeWelcome = () => {
     });
   }, []);
   return (
-    <div>
+    <>
       <Header isHome />
       <div className={styles.wavyImageContainter}>
         <WavyImage />
-        <h3 className={styles.wavyImageTitle}>Welcome in SHOPIFY</h3>
+        <h3 className={styles.wavyImageTitle}>
+          <div className={styles.ab}>Welcome in SHOPIFY</div>
+        </h3>
         <h4 className={styles.circleText} id="circleText">
           Discounts Discounts{' '}
         </h4>
@@ -37,7 +39,7 @@ const HomeWelcome = () => {
         </Link>
       </div>
       <SocialIcons />
-    </div>
+    </>
   );
 };
 
