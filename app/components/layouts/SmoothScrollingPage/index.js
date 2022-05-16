@@ -75,6 +75,7 @@ const SmoothScrollingPage = ({ children, scrollTar }) => {
     return () => {
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onResize);
+      body.style.height ='auto'
     };
   }, [scrollTar]);
   return (
