@@ -9,7 +9,9 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,700&display=swap"
             rel="stylesheet"
           />
-        
+          <link rel="manifest" href="/manifest.json" />
+          <link rel="apple-touch-icon" href="/favicon.ico"></link>
+          <meta name="theme-color" content="#fff" />
         </Head>
         <body>
           <Main />

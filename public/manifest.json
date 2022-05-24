@@ -1,0 +1,16 @@
+{
+  "name": "Shopify",
+  "short_name": "Shopify",
+  "icons": [
+    {
+      "src": "/faviconPNG.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#FFFFFF",
+  "background_color": "#FFFFFF",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}
