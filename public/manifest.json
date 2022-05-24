@@ -10,7 +10,7 @@
   ],
   "theme_color": "#FFFFFF",
   "background_color": "#FFFFFF",
-  "start_url": "https://shopify-rouge.vercel.app/",
+  "start_url": "/",
   "display": "standalone",
-  "scope": "https://shopify-rouge.vercel.app/"
+  "scope": "/"
 }
