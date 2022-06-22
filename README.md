@@ -1,7 +1,3 @@
-# Online Version
-
-- [https://shopify-rouge.vercel.app](https://shopify-rouge.vercel.app)
-
 # Shopify
 
 This Project was cretated for users which want to order food.
